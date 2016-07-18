@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Steam - a minimal theme for Hugo</title>
-    <link>/paarthneekhara.github.io/</link>
+    <link>/</link>
     <description>Recent content on Steam - a minimal theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:40 +0530</lastBuildDate>
-    <atom:link href="/paarthneekhara.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Step Aside From The Race</title>
-      <link>/paarthneekhara.github.io/post/step-aside-from-the-race/</link>
+      <link>/post/step-aside-from-the-race/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:40 +0530</pubDate>
       
-      <guid>/paarthneekhara.github.io/post/step-aside-from-the-race/</guid>
+      <guid>/post/step-aside-from-the-race/</guid>
       <description>
 
 &lt;h3 id=&#34;this-is-one-of-my-first-poems-and-my-personal-favourite&#34;&gt;&lt;em&gt;This is one of my first poems and my personal favourite.&lt;/em&gt;&lt;/h3&gt;
@@ -45,10 +45,10 @@ Would think about it another day&amp;hellip;&lt;/p&gt;
     
     <item>
       <title>About</title>
-      <link>/paarthneekhara.github.io/about/</link>
+      <link>/about/</link>
       <pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate>
       
-      <guid>/paarthneekhara.github.io/about/</guid>
+      <guid>/about/</guid>
       <description>&lt;p&gt;I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from &lt;a href=&#34;http://www.iitr.ac.in/&#34;&gt;IIT Roorkee&lt;/a&gt;. I love solving real world problems. The journeys towards the solutions have been more .&lt;/p&gt;
 
 &lt;p&gt;I have been recently working on developing &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;RTIFeed&lt;/a&gt;, a web platform to make authentic information available to the masses. This project has kept our team inspired and motivated for the last one year. I can talk endlessly about this project and its potential, but this page is about me!&lt;/p&gt;
