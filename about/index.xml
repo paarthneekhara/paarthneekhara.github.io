@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on Steam - a minimal theme for Hugo</title>
+    <link>http://paarthneekhara.github.io/about/</link>
+    <description>Recent content in Abouts on Steam - a minimal theme for Hugo</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Jul 2016 18:07:07 +0530</lastBuildDate>
+    <atom:link href="http://paarthneekhara.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>http://paarthneekhara.github.io/about/</link>
+      <pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate>
+      
+      <guid>http://paarthneekhara.github.io/about/</guid>
+      <description>&lt;p&gt;I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from &lt;a href=&#34;http://www.iitr.ac.in/&#34;&gt;IIT Roorkee&lt;/a&gt;. I love solving real world problems. The journeys towards the solutions have been more .&lt;/p&gt;
+
+&lt;p&gt;I have been recently working on developing &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;RTIFeed&lt;/a&gt;, a web platform to make authentic information available to the masses. This project has kept our team inspired and motivated for the last one year. I can talk endlessly about this project and its potential, but this page is about me!&lt;/p&gt;
+
+&lt;p&gt;Computer Science wasn&amp;rsquo;t a planned affair for me. I started coding in 2013 and the more I explore, the more amazed I am at the sheer beauty of this subject. Machine Learning and Neural Networks in particular make me appreciate mathematics. It quenches the anxiety of my high school days when I felt topics like matrices, calculus were needless!&lt;/p&gt;
+
+&lt;p&gt;I love travelling and photography. They complement each other perfectly. You can find some pictures of my travels and wildlife(mostly birds) &lt;a href=&#34;https://500px.com/paarthneekhara&#34;&gt;here&lt;/a&gt;. I started cycling a year ago and I actually wish a good night to my bike before I sleep! I love &lt;a href=&#34;https://www.strava.com/athletes/13254146&#34;&gt;riding around my home place&lt;/a&gt; - Dehradun, Uttarakhand. Amidst the magnificent Himalyas, this valley is a complete paradise.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
