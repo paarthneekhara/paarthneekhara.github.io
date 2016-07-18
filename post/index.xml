@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Steam - a minimal theme for Hugo</title>
-    <link>paarthneekhara.github.io/post/</link>
+    <link>/paarthneekhara.github.io/post/</link>
     <description>Recent content in Posts on Steam - a minimal theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:40 +0530</lastBuildDate>
-    <atom:link href="paarthneekhara.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/paarthneekhara.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Step Aside From The Race</title>
