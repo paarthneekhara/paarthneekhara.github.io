@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Steam - a minimal theme for Hugo</title>
-    <link>/post/</link>
+    <link>https://paarthneekhara.github.io/post/</link>
     <description>Recent content in Posts on Steam - a minimal theme for Hugo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 19 Jul 2016 00:11:40 +0530</lastBuildDate>
-    <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://paarthneekhara.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Step Aside From The Race</title>
-      <link>/post/step-aside-from-the-race/</link>
+      <link>https://paarthneekhara.github.io/post/step-aside-from-the-race/</link>
       <pubDate>Tue, 19 Jul 2016 00:11:40 +0530</pubDate>
       
-      <guid>/post/step-aside-from-the-race/</guid>
+      <guid>https://paarthneekhara.github.io/post/step-aside-from-the-race/</guid>
       <description>
 
 &lt;h3 id=&#34;this-is-one-of-my-first-poems-and-my-personal-favourite&#34;&gt;&lt;em&gt;This is one of my first poems and my personal favourite.&lt;/em&gt;&lt;/h3&gt;
