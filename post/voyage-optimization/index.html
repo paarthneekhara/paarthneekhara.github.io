@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <title>Step Aside From The Race &middot; Paarth&#39;s Blog</title>
+    <title>Voyage Optimization using Weather Routing and Speed Scheduling &middot; Paarth&#39;s Blog</title>
     <meta name="author" content="Paarth Neekhara">
     <meta name="description" content="">
     <meta name="generator" content="Hugo 0.16" />
@@ -59,44 +59,42 @@
     <main class="content" role="main">
 	    <article class="post">
 	        <header>
-	        <h1 class="post-title">Step Aside From The Race</h1>
-	        <div class="post-meta"><time datetime="19 July 2016">19 July 2016</time></div>
+	        <h1 class="post-title">Voyage Optimization using Weather Routing and Speed Scheduling</h1>
+	        <div class="post-meta"><time datetime="23 July 2016">23 July 2016</time></div>
 	        </header>
 
 	        <section class="post-content">
 	            
 
-<h3 id="this-is-one-of-my-first-poems-and-my-personal-favourite"><em>This is one of my first poems and my personal favourite.</em></h3>
+<h2 id="background">Background</h2>
 
-<p><br>
-Step aside from the race to think.<br />
-Relax and realize the purpose of the race<br />
-Think from an unconditioned perspective<br />
-Are we here to survive?</p>
+<p>A tanker ship having dead weight __MT can consume upto __MT of fuel oil for covering a distance of __ nautical miles at an average speed of 13 knots. The scale of fuel consumed is huge and so are the potential fuel savings. Without delaying the ETA at the destination savings upto 25% can be achieved. This is possible through speed management and weather routing by leveraging the effects of favourable weather and sea currents and avoiding(reducing) bad weather days during the voyage.</p>
 
-<p>Why are we so desperate to keep the world moving?<br />
-Are we merely players in The Big Drama?<br />
-Being watched by an unknown audience<br />
-And we humans playing the role of fools and jokers<br />
-In the more sensible world around us.</p>
+<h2 id="traditional-weather-routing-algorithms">Traditional Weather Routing Algorithms</h2>
 
-<p>Is this life a gift or a trap?<br />
-With luxuries merely the baits,<br />
-To catch the innocent beings<br />
-In this illusionary and deceiving world.</p>
+<p>The traditional weather routing algorithims work out a route that avoids bad weather nodes on a program generated grid between the ports. This is simply a djikstra&rsquo;s algorithm implementation where the edge weight is the amount of fuel consumed on that edge given a speed/engine-rpm to maintain, edge length and the expected weather between the nodes. While this approach sounds promising, it assumes a constant engine-rpm/speed and does not leverage speed scheduling. To avoid bad weather it is not always necessary to go around the storm. One can slow down before a passing storm ahead, let it pass, and make up for the speed lost thereafter.</p>
 
-<p>Think again before you rejoin the race<br />
-It’s destination unknown but it&rsquo;s end assured<br />
-I rejoin the &lsquo;Race&rsquo; once more<br />
-Would think about it another day&hellip;</p>
+<h3 id="how-do-we-solve-this">How do we solve this?</h3>
+
+<p><em>To plan the most optimum voyage schedule we need to combine speed scheduling with weather routing. The problem statement can be simplified to:
+<br>
+<strong>Given a connected graph between the 2 ports, with a complete weather forecast at some resolution(say 15 mins) find the most optimum path and also the speed the vessel has to maintain between any 2 nodes on that path.</strong></em></p>
+
+<h2 id="sub-problems-for-the-above-problem-statement">Sub-problems for the above problem statement</h2>
+
+<ul>
+<li><strong>Modelling the effects of weather on ship speed:</strong> The relations between engine-rpm, speed, fuel oil consumption, engine load and weather(wind, wave, swell and sea currents) are the basic foundation for solving the problem. Not only does this calculation needs to be accurate but also fast since the results need to computed several thousand times to solve the final problem.
+<br>
+The imperative relations between engine-rpm, fair weather speed, and fuel oil consumption are quite straight forward. These relations are fitted to the vessel specific voyage abstracts to mathematically model a particular ship in fair weather.
+<br>
+The imperative model of ship responses to wind, wave and swell is a modified version of the model proposed in the paper <a href="http://www.dtic.mil/dtic/tr/fulltext/u2/a056220.pdf">The Effect of Weather On a Ship&rsquo;s Speed</a>. This model is generalised over the different categories of vessels based on deadweight and is tweaked as per a vessel&rsquo;s past voyage abstracts.</li>
+</ul>
 
 	        </section>
 
 	        <section class="post-tags" style="padding-bottom:60px;">
 	            <div class="post-meta tags">
 	            <i class="fa fa-fw fa-tag"></i>
-	            
-	            <a href="/tags/Poetry">Poetry </a>
 	            
 	            </div>
 	        </section>
@@ -126,15 +124,15 @@ Would think about it another day&hellip;</p>
 	        <section class="share">
 	            <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
 	            <p class="info prompt">Share</p>
-	            <a href="http://twitter.com/share?text=Step%20Aside%20From%20The%20Race&url=%2fpost%2fstep-aside-from-the-race%2f" title="Share on Twitter"
+	            <a href="http://twitter.com/share?text=Voyage%20Optimization%20using%20Weather%20Routing%20and%20Speed%20Scheduling&url=%2fpost%2fvoyage-optimization%2f" title="Share on Twitter"
 	                onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
 	                <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
 	            </a>
-	            <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fstep-aside-from-the-race%2f" title="Share on Facebook"
+	            <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fvoyage-optimization%2f" title="Share on Facebook"
 	                onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
 	                <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
 	            </a>
-	            <a href="https://plus.google.com/share?url=%2fpost%2fstep-aside-from-the-race%2f" title="Share on Google+"
+	            <a href="https://plus.google.com/share?url=%2fpost%2fvoyage-optimization%2f" title="Share on Google+"
 	               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
 	                <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
 	            </a>
