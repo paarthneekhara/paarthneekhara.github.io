@@ -6,42 +6,8 @@
     <description>Recent content on Paarth&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Jul 2016 22:16:22 +0530</lastBuildDate>
+    <lastBuildDate>Tue, 19 Jul 2016 00:11:40 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Voyage Optimization using Weather Routing and Speed Scheduling</title>
-      <link>/post/voyage-optimization/</link>
-      <pubDate>Sat, 23 Jul 2016 22:16:22 +0530</pubDate>
-      
-      <guid>/post/voyage-optimization/</guid>
-      <description>
-
-&lt;h2 id=&#34;background&#34;&gt;Background&lt;/h2&gt;
-
-&lt;p&gt;A tanker ship having dead weight __MT can consume upto __MT of fuel oil for covering a distance of __ nautical miles at an average speed of 13 knots. The scale of fuel consumed is huge and so are the potential fuel savings. Without delaying the ETA at the destination savings upto 25% can be achieved. This is possible through speed management and weather routing by leveraging the effects of favourable weather and sea currents and avoiding(reducing) bad weather days during the voyage.&lt;/p&gt;
-
-&lt;h2 id=&#34;traditional-weather-routing-algorithms&#34;&gt;Traditional Weather Routing Algorithms&lt;/h2&gt;
-
-&lt;p&gt;The traditional weather routing algorithims work out a route that avoids bad weather nodes on a program generated grid between the ports. This is simply a djikstra&amp;rsquo;s algorithm implementation where the edge weight is the amount of fuel consumed on that edge given a speed/engine-rpm to maintain, edge length and the expected weather between the nodes. While this approach sounds promising, it assumes a constant engine-rpm/speed and does not leverage speed scheduling. To avoid bad weather it is not always necessary to go around the storm. One can slow down before a passing storm ahead, let it pass, and make up for the speed lost thereafter.&lt;/p&gt;
-
-&lt;h3 id=&#34;how-do-we-solve-this&#34;&gt;How do we solve this?&lt;/h3&gt;
-
-&lt;p&gt;&lt;em&gt;To plan the most optimum voyage schedule we need to combine speed scheduling with weather routing. The problem statement can be simplified to:
-&lt;br&gt;
-&lt;strong&gt;Given a connected graph between the 2 ports, with a complete weather forecast at some resolution(say 15 mins) find the most optimum path and also the speed the vessel has to maintain between any 2 nodes on that path.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;sub-problems-for-the-above-problem-statement&#34;&gt;Sub-problems for the above problem statement&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Modelling the effects of weather on ship speed:&lt;/strong&gt; The relations between engine-rpm, speed, fuel oil consumption, engine load and weather(wind, wave, swell and sea currents) are the basic foundation for solving the problem. Not only does this calculation needs to be accurate but also fast since the results need to computed several thousand times to solve the final problem.
-&lt;br&gt;
-The imperative relations between engine-rpm, fair weather speed, and fuel oil consumption are quite straight forward. These relations are fitted to the vessel specific voyage abstracts to mathematically model a particular ship in fair weather.
-&lt;br&gt;
-The imperative model of ship responses to wind, wave and swell is a modified version of the model proposed in the paper &lt;a href=&#34;http://www.dtic.mil/dtic/tr/fulltext/u2/a056220.pdf&#34;&gt;The Effect of Weather On a Ship&amp;rsquo;s Speed&lt;/a&gt;. This model is generalised over the different categories of vessels based on deadweight and is tweaked as per a vessel&amp;rsquo;s past voyage abstracts.&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-    </item>
     
     <item>
       <title>Step Aside From The Race</title>
