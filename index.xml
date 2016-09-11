@@ -23,7 +23,7 @@
 
 &lt;p&gt;There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language. It is purely by experience and observation that the child learns the patterns in the word sequences. This way of learning becomes more exciting when we realize how well it generalizes across all languages.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;There is a strong correspondence between how a Recurrent Neural Network is trained, and how a child learns to speak&lt;/strong&gt;. An RNN processes and learns from sequential information. Consider the problem of machine translation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak&lt;/strong&gt;. An RNN processes and learns from sequential information. Consider the problem of machine translation.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;/rnn.png&#34; style = &#34;height : 300px&#34;&gt;
 &lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&#34;&gt;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
