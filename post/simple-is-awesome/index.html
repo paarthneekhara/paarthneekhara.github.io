@@ -80,7 +80,7 @@
 
 <p><strong>There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak</strong>. An RNN processes and learns from sequential information. Consider the problem of machine translation.</p>
 
-<p><img src="/rnn.png" style = "height : 300px">
+<p><img src="/blogs/rnn.png" style = "height : 300px">
 <div style = "font-size:12px">Image Source: <a href="http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf">http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf</a>  </div></p>
 
 <p>The dataset contains pairs of sentences in two languages (eg. German and English). An RNN processes the input sentence sequentially (word by word or character by character) and uses the processed information with the current word to obtain a new state. The first stage of the translation can be understood as encoding the meaning of the input sentence into a vector of numbers, popularly called a thought vector or sentence embedding. The next stage of the translation involves generating the embedded sentence in the target language, which is again done through an RNN. This simple architecture is surprisingly effective and given enough data, it can easily outperform a rule based machine translator. <strong>Without modifying anything in the above architecture, the RNN can be used for translating any pair of languages given the appropriate data set.</strong></p>
@@ -93,7 +93,7 @@
 
 <p>Before connecting the dots between images and text, we need to encode the images in a way a unified network can work on image and text encodings. This involves capturing the image features in the form of a vector that has information about the image. Convolutional Neural Networks have produced unprecedented results in this area. I&rsquo;ll not dig deep into them, but the idea essentially is to train filters on images that produce features, which are relevant to understanding its content. A CNN can work directly on top of scaled pixel values without any further preprocessing on the image. ( I am pointing this out to reiterate its simplicity).</p>
 
-<p><img src="/conv.png" style = "height : 300px">
+<p><img src="/blogs/conv.png" style = "height : 300px">
 <div style = "font-size:12px">Image Source: <a href="http://www.mdpi.com/2072-4292/7/11/14680/htm">http://www.mdpi.com/2072-4292/7/11/14680/htm</a>  </div></p>
 
 <blockquote>
@@ -109,10 +109,10 @@
 <table>
     <tr>
         <td>
-            <img src="/vqaeg.png" style = "height : 200px">
+            <img src="/blogs/vqaeg.png" style = "height : 200px">
         </td>
         <td>
-            <img src="/vqaarch.jpeg" style = "height : 300px">
+            <img src="/blogs/vqaarch.jpeg" style = "height : 300px">
         </td>
     </tr>
     <tr>
@@ -144,7 +144,7 @@ for understanding how they work is published by Open AI. A generative network ge
 <p>I cannot convincingly relate this image generation with the human mind, but this concept is super interesting and effective!
 To link the generated images with text, a <strong>conditional generative adversarial model</strong> is used. <a href="https://arxiv.org/abs/1605.05396">Generative Adversarial Text to Image Synthesis</a> - This paper implements one such conditional adversarial model.</p>
 
-<p><img src="/genmodel.jpeg" style = "height : 200px">
+<p><img src="/blogs/genmodel.jpeg" style = "height : 200px">
 <div style = "font-size:12px">Image Source: <a href="https://arxiv.org/abs/1605.05396">https://arxiv.org/abs/1605.05396</a>  </div></p>
 
 <p>I implemented the GAN-CLS algorithm in the above paper using <a href="https://github.com/ryankiros/skip-thoughts">skip-thought-vectors</a> for embedding the captions. Some of the sample predictions are:</p>

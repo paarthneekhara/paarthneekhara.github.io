@@ -25,7 +25,7 @@
 
 &lt;p&gt;&lt;strong&gt;There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak&lt;/strong&gt;. An RNN processes and learns from sequential information. Consider the problem of machine translation.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/rnn.png&#34; style = &#34;height : 300px&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/blogs/rnn.png&#34; style = &#34;height : 300px&#34;&gt;
 &lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&#34;&gt;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;The dataset contains pairs of sentences in two languages (eg. German and English). An RNN processes the input sentence sequentially (word by word or character by character) and uses the processed information with the current word to obtain a new state. The first stage of the translation can be understood as encoding the meaning of the input sentence into a vector of numbers, popularly called a thought vector or sentence embedding. The next stage of the translation involves generating the embedded sentence in the target language, which is again done through an RNN. This simple architecture is surprisingly effective and given enough data, it can easily outperform a rule based machine translator. &lt;strong&gt;Without modifying anything in the above architecture, the RNN can be used for translating any pair of languages given the appropriate data set.&lt;/strong&gt;&lt;/p&gt;
@@ -38,7 +38,7 @@
 
 &lt;p&gt;Before connecting the dots between images and text, we need to encode the images in a way a unified network can work on image and text encodings. This involves capturing the image features in the form of a vector that has information about the image. Convolutional Neural Networks have produced unprecedented results in this area. I&amp;rsquo;ll not dig deep into them, but the idea essentially is to train filters on images that produce features, which are relevant to understanding its content. A CNN can work directly on top of scaled pixel values without any further preprocessing on the image. ( I am pointing this out to reiterate its simplicity).&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/conv.png&#34; style = &#34;height : 300px&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/blogs/conv.png&#34; style = &#34;height : 300px&#34;&gt;
 &lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;http://www.mdpi.com/2072-4292/7/11/14680/htm&#34;&gt;http://www.mdpi.com/2072-4292/7/11/14680/htm&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -54,10 +54,10 @@
 &lt;table&gt;
     &lt;tr&gt;
         &lt;td&gt;
-            &lt;img src=&#34;/vqaeg.png&#34; style = &#34;height : 200px&#34;&gt;
+            &lt;img src=&#34;/blogs/vqaeg.png&#34; style = &#34;height : 200px&#34;&gt;
         &lt;/td&gt;
         &lt;td&gt;
-            &lt;img src=&#34;/vqaarch.jpeg&#34; style = &#34;height : 300px&#34;&gt;
+            &lt;img src=&#34;/blogs/vqaarch.jpeg&#34; style = &#34;height : 300px&#34;&gt;
         &lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -89,7 +89,7 @@ for understanding how they work is published by Open AI. A generative network ge
 &lt;p&gt;I cannot convincingly relate this image generation with the human mind, but this concept is super interesting and effective!
 To link the generated images with text, a &lt;strong&gt;conditional generative adversarial model&lt;/strong&gt; is used. &lt;a href=&#34;https://arxiv.org/abs/1605.05396&#34;&gt;Generative Adversarial Text to Image Synthesis&lt;/a&gt; - This paper implements one such conditional adversarial model.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/genmodel.jpeg&#34; style = &#34;height : 200px&#34;&gt;
+&lt;p&gt;&lt;img src=&#34;/blogs/genmodel.jpeg&#34; style = &#34;height : 200px&#34;&gt;
 &lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;https://arxiv.org/abs/1605.05396&#34;&gt;https://arxiv.org/abs/1605.05396&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
 
 &lt;p&gt;I implemented the GAN-CLS algorithm in the above paper using &lt;a href=&#34;https://github.com/ryankiros/skip-thoughts&#34;&gt;skip-thought-vectors&lt;/a&gt; for embedding the captions. Some of the sample predictions are:&lt;/p&gt;
@@ -178,12 +178,14 @@ Would think about it another day&amp;hellip;&lt;/p&gt;
     </item>
     
     <item>
-      <title>About</title>
+      <title></title>
       <link>/about/</link>
       <pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate>
       
       <guid>/about/</guid>
-      <description>&lt;p&gt;I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from &lt;a href=&#34;http://www.iitr.ac.in/&#34;&gt;IIT Roorkee&lt;/a&gt;. I love solving real world problems. The journeys towards the solutions have been more exciting than the destinations themselves.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;/profile/dp.jpeg&#34; style = &#34;height : 200px&#34;&gt;
+&lt;br&gt;
+I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from &lt;a href=&#34;http://www.iitr.ac.in/&#34;&gt;IIT Roorkee&lt;/a&gt;. I love solving real world problems. The journeys towards the solutions have been more exciting than the destinations themselves.&lt;/p&gt;
 
 &lt;p&gt;I have been recently working on developing &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;RTIFeed&lt;/a&gt;, a web platform to make authentic information available to the masses. This project has kept our team inspired and motivated for the last one year. I can talk endlessly about this project and its potential, but this page is about me!&lt;/p&gt;
 
