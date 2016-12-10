@@ -6,8 +6,100 @@
     <description>Recent content on Paarth&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Aug 2016 16:28:15 +0530</lastBuildDate>
+    <lastBuildDate>Sat, 10 Dec 2016 12:34:19 +0530</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>/projects/</link>
+      <pubDate>Sat, 10 Dec 2016 12:34:19 +0530</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>
+
+&lt;ul&gt;
+&lt;li&gt;&lt;h1 id=&#34;deep-learning-projects-10&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara&#34;&gt;Deep Learning Projects&lt;/a&gt;&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;h2 id=&#34;bytenet-tensorflow-1&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/byteNet-tensorflow&#34;&gt;ByteNet - Tensorflow&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Implemented the dilated convolutional ByteNet model of neural machine translation from the paper &lt;a href=&#34;https://arxiv.org/abs/1610.10099&#34;&gt;Neural Machine Translation in Linear Time&lt;/a&gt; .&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/IE6Zq6o.jpg&#34; style = &#34;height : 250px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;text-to-image-synthesis-using-thought-vectors-2&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/text-to-image&#34;&gt;Text To Image Synthesis Using Thought Vectors&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Generative Adversarial Text to Image Synthesis using skip-thought vectors. Implemented the GAN-CLS algorithm from the paper &lt;a href=&#34;http://arxiv.org/abs/1605.05396&#34;&gt;Generative Adversarial Text to Image Synthesis&lt;/a&gt; and conditioned the model using text-embeddings from &lt;a href=&#34;http://arxiv.org/abs/1506.06726&#34;&gt;Skip Thought Vectors&lt;/a&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Caption&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Generated Images&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;the flower shown has yellow anther red pistil and bright red petals&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/SknZ3Sg.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;this flower has petals that are yellow, white and purple and has dark lines&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/8zsv9Nc.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;the petals on this flower are white with a yellow center&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/vvzv1cE.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;this flower has a lot of small round pink petals.&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/w0zK1DC.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;this flower is orange in color, and has petals that are ruffled and rounded.&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/VfBbRP1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;the flower has yellow petals and the center of it is brown&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/IAuOGZY.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;visual-question-answering-in-tensorflow-3&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/neural-vqa-tensorflow&#34;&gt;Visual Question Answering in Tensorflow&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Implemented the VIS-LSTM model of Visual Question Answering from the paper &lt;a href=&#34;http://arxiv.org/abs/1505.02074&#34;&gt;Exploring Models and Data for Image Question Answering&lt;/a&gt;.
+&lt;img src=&#34;http://i.imgur.com/Jvixx2W.jpg&#34; style = &#34;height : 300px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h1 id=&#34;rtifeed-8&#34;&gt;&lt;a href=&#34;http://www.rtifeed.com/&#34;&gt;RTIFeed&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Web platform to share authentic information fetched from government departments by exercising the Right to Information Act in India. To know more about RTIFeed visit &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;rtifeed.com/about&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h1 id=&#34;blue-water-trade-winds-pvt-ltd-9&#34;&gt;&lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;Blue Water Trade Winds Pvt Ltd&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Developed marine optimization softwares BOSS and e-Therm with an small enthusiastic team of software engineers at this marine consultancy company, owned by my father.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;h2 id=&#34;boss-blue-water-optimum-speed-services-12&#34;&gt;&lt;a href=&#34;http://bwesglobal.com/chm.html&#34;&gt;BOSS - Blue Water Optimum Speed Services&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;BOSS is a ship route optimization and speech scheduling online service. BOSS models ship&amp;rsquo;s reponses to weather and relations between engine RPM, speed and weather factors. BOSS uses this model to simulate the voyage in a bounded ocean-grid indexed with weather. Based on this simulation, BOSS uses a dynamic programming algorithm to plan the most optimum route and speed schedule in the forecast weather.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://bwesglobal.com/images/wind.gif&#34; style = &#34;height : 300px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;h2 id=&#34;e-therm-for-cargo-heating-management-12&#34;&gt;&lt;a href=&#34;http://bwesglobal.com/chm.html&#34;&gt;e-Therm for Cargo Heating Management&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Developed a cargo temperature simulation tool for planning an optimum heating schedule for tanker ships carrying heated cargo oil. Blue Water Received the &lt;a href=&#34;http://lloydslistawards-meis.com/winners-2015/&#34;&gt;Lloyd’s List Intelligence Big Data Award&lt;/a&gt; for this project.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
     
     <item>
       <title>The Important Things In Life Are Often Simple</title>
