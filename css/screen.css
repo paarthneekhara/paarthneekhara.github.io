@@ -105,10 +105,36 @@ article,
 article.preview,
 a.archive-link,
 .article-nav {
-  margin: 20px auto;
-  max-width: 800px;
-  width: 90%;
+  margin: auto;
+  /*max-width: 800px;*/
+  width: 60%;
 }
+
+.full_width_image {
+    margin-left:-34%; 
+    width : 167.5%
+}
+
+/*.post_image {
+  max-width: 100%;
+}*/
+
+@media (max-width: 800px) {
+  article,
+  article.preview,
+  a.archive-link,
+  .article-nav {
+    margin: auto;
+    /*max-width: 800px;*/
+    width: 90%;
+  }
+
+  .full_width_image {
+    margin-left:-6%; 
+    width : 112%;
+  }
+}
+
 #site-head img {
   max-width: 100%;
 }
@@ -272,9 +298,9 @@ h1.blog-title a:hover {
   /*color: #178b6b;*/
   text-decoration: none;
 }
-section.post-content img {
+section.post-content img:not(.full_width_image){
   display: block;
-  margin: 0 auto;
+  /*margin: auto;*/
   max-width: 100%;
 }
 section.preview.archive h2 {

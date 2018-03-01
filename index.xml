@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 10 Dec 2016 12:34:19 +0530</lastBuildDate>
-    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title></title>
@@ -15,90 +17,9 @@
       <pubDate>Sat, 10 Dec 2016 12:34:19 +0530</pubDate>
       
       <guid>/projects/</guid>
-      <description>
-
-&lt;ul&gt;
-&lt;li&gt;&lt;h1 id=&#34;deep-learning-projects-10&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara&#34;&gt;Deep Learning Projects&lt;/a&gt;&lt;/h1&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;h2 id=&#34;bytenet-tensorflow-1&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/byteNet-tensorflow&#34;&gt;ByteNet - Tensorflow&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Implemented the dilated convolutional ByteNet model of neural machine translation from the paper &lt;a href=&#34;https://arxiv.org/abs/1610.10099&#34;&gt;Neural Machine Translation in Linear Time&lt;/a&gt; .&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/IE6Zq6o.jpg&#34; style = &#34;height : 250px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;h2 id=&#34;text-to-image-synthesis-using-thought-vectors-2&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/text-to-image&#34;&gt;Text To Image Synthesis Using Thought Vectors&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Generative Adversarial Text to Image Synthesis using skip-thought vectors. Implemented the GAN-CLS algorithm from the paper &lt;a href=&#34;http://arxiv.org/abs/1605.05396&#34;&gt;Generative Adversarial Text to Image Synthesis&lt;/a&gt; and conditioned the model using text-embeddings from &lt;a href=&#34;http://arxiv.org/abs/1506.06726&#34;&gt;Skip Thought Vectors&lt;/a&gt;.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Caption&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Generated Images&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;the flower shown has yellow anther red pistil and bright red petals&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/SknZ3Sg.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower has petals that are yellow, white and purple and has dark lines&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/8zsv9Nc.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;the petals on this flower are white with a yellow center&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/vvzv1cE.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower has a lot of small round pink petals.&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/w0zK1DC.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower is orange in color, and has petals that are ruffled and rounded.&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/VfBbRP1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;the flower has yellow petals and the center of it is brown&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/IAuOGZY.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;h2 id=&#34;visual-question-answering-in-tensorflow-3&#34;&gt;&lt;a href=&#34;https://github.com/paarthneekhara/neural-vqa-tensorflow&#34;&gt;Visual Question Answering in Tensorflow&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Implemented the VIS-LSTM model of Visual Question Answering from the paper &lt;a href=&#34;http://arxiv.org/abs/1505.02074&#34;&gt;Exploring Models and Data for Image Question Answering&lt;/a&gt;.
-&lt;img src=&#34;http://i.imgur.com/Jvixx2W.jpg&#34; style = &#34;height : 300px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;h1 id=&#34;rtifeed-8&#34;&gt;&lt;a href=&#34;http://www.rtifeed.com/&#34;&gt;RTIFeed&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Web platform to share authentic information fetched from government departments by exercising the Right to Information Act in India. To know more about RTIFeed visit &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;rtifeed.com/about&lt;/a&gt;.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;h1 id=&#34;blue-water-trade-winds-pvt-ltd-14&#34;&gt;&lt;a href=&#34;http://bwesglobal.com&#34;&gt;Blue Water Trade Winds Pvt Ltd&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;Developed marine optimization softwares BOSS and e-Therm with an small enthusiastic team of software engineers at this marine consultancy company, owned by my father.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;h2 id=&#34;boss-blue-water-optimum-speed-services-12&#34;&gt;&lt;a href=&#34;http://bwesglobal.com/chm.html&#34;&gt;BOSS - Blue Water Optimum Speed Services&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;BOSS is a ship route optimization and speech scheduling online service. BOSS models ship&amp;rsquo;s reponses to weather and relations between engine RPM, speed and weather factors. BOSS uses this model to simulate the voyage in a bounded ocean-grid indexed with weather. Based on this simulation, BOSS uses a dynamic programming algorithm to plan the most optimum route and speed schedule in the forecast weather.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://bwesglobal.com/images/wind.gif&#34; style = &#34;height : 300px&#34;&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;h2 id=&#34;e-therm-for-cargo-heating-management-12&#34;&gt;&lt;a href=&#34;http://bwesglobal.com/chm.html&#34;&gt;e-Therm for Cargo Heating Management&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Developed a cargo temperature simulation tool for planning an optimum heating schedule for tanker ships carrying heated cargo oil. Blue Water Received the &lt;a href=&#34;http://lloydslistawards-meis.com/winners-2015/&#34;&gt;Lloyd’s List Intelligence Big Data Award&lt;/a&gt; for this project.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <description>Deep Learning Projects  ByteNet - Tensorflow Implemented the dilated convolutional ByteNet model of neural machine translation from the paper Neural Machine Translation in Linear Time .
+ Text To Image Synthesis Using Thought Vectors Generative Adversarial Text to Image Synthesis using skip-thought vectors. Implemented the GAN-CLS algorithm from the paper Generative Adversarial Text to Image Synthesis and conditioned the model using text-embeddings from Skip Thought Vectors.
+   Caption Generated Images     the flower shown has yellow anther red pistil and bright red petals    this flower has petals that are yellow, white and purple and has dark lines    the petals on this flower are white with a yellow center    this flower has a lot of small round pink petals.</description>
     </item>
     
     <item>
@@ -107,132 +28,8 @@
       <pubDate>Fri, 26 Aug 2016 16:28:15 +0530</pubDate>
       
       <guid>/post/simple-is-awesome/</guid>
-      <description>
-
-&lt;p&gt;I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&amp;rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!&lt;/p&gt;
-
-&lt;h2 id=&#34;language&#34;&gt;Language&lt;/h2&gt;
-
-&lt;p&gt;There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language. It is purely by experience and observation that the child learns the patterns in the word sequences. This way of learning becomes more exciting when we realize how well it generalizes across all languages.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak&lt;/strong&gt;. An RNN processes and learns from sequential information. Consider the problem of machine translation.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/blogs/rnn.png&#34; style = &#34;height : 300px&#34;&gt;
-&lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&#34;&gt;http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;The dataset contains pairs of sentences in two languages (eg. German and English). An RNN processes the input sentence sequentially (word by word or character by character) and uses the processed information with the current word to obtain a new state. The first stage of the translation can be understood as encoding the meaning of the input sentence into a vector of numbers, popularly called a thought vector or sentence embedding. The next stage of the translation involves generating the embedded sentence in the target language, which is again done through an RNN. This simple architecture is surprisingly effective and given enough data, it can easily outperform a rule based machine translator. &lt;strong&gt;Without modifying anything in the above architecture, the RNN can be used for translating any pair of languages given the appropriate data set.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;There are strong reasons to believe our mind interprets and generates sentences in a very similar way. &lt;strong&gt;The training corpus for our mind is linked across many domains. We can translate text to text (one language to another), image to text (describing an image) or even text to image (picturing a scene while reading).&lt;/strong&gt; The cool thing is, we can simulate most of these translations on a machine as well.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;vision&#34;&gt;Vision&lt;/h2&gt;
-
-&lt;p&gt;Before connecting the dots between images and text, we need to encode the images in a way a unified network can work on image and text encodings. This involves capturing the image features in the form of a vector that has information about the image. Convolutional Neural Networks have produced unprecedented results in this area. I&amp;rsquo;ll not dig deep into them, but the idea essentially is to train filters on images that produce features, which are relevant to understanding its content. A CNN can work directly on top of scaled pixel values without any further preprocessing on the image. ( I am pointing this out to reiterate its simplicity).&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/blogs/conv.png&#34; style = &#34;height : 300px&#34;&gt;
-&lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;http://www.mdpi.com/2072-4292/7/11/14680/htm&#34;&gt;http://www.mdpi.com/2072-4292/7/11/14680/htm&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;It is interesting to observe that a CNN trained for one task can be used for generating image feature vector for another. The reason is that the features of image extracted by a CNN are very generic (like edges, blobs etc) . This holds true for RNNs as well. Both CNN and RNN can be used as feature encoders for images and text respectively.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&#34;linking-it-together&#34;&gt;Linking It Together&lt;/h2&gt;
-
-&lt;p&gt;The fact we are able to encode the content of both text and image in numbers allows us to link the two. We can now train our models on data linked across multiple domains - language and vision. I will elaborate on two such interesting problems - &lt;strong&gt;Visual Question Answering&lt;/strong&gt; and &lt;strong&gt;Image Synthesis From Text&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h4 id=&#34;visual-question-answering-http-www-visualqa-org&#34;&gt;Visual Question Answering (&lt;a href=&#34;http://www.visualqa.org/&#34;&gt;http://www.visualqa.org/&lt;/a&gt;)&lt;/h4&gt;
-
-&lt;table&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-            &lt;img src=&#34;/blogs/vqaeg.png&#34; style = &#34;height : 200px&#34;&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-            &lt;img src=&#34;/blogs/vqaarch.jpeg&#34; style = &#34;height : 300px&#34;&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;Example of Visual Question Answering&lt;/td&gt;
-        &lt;td&gt;&lt;center&gt;VQA model architecture from &lt;a href=&#34;http://arxiv.org/abs/1505.02074&#34;&gt;http://arxiv.org/abs/1505.02074&lt;/a&gt;&lt;/center&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/table&gt;
-
-&lt;p&gt;The problem definition of VQA is: given an image and a question predict an answer. The training data schema is the triplet (image, question, answer). The model architecture for this problem is shown above.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;The image is embedded using a pre-trained CNN and the 4096 dimensional image embedding vector is reduced to 512 dimensional vector (same as that of word embeddings) using a fully connected layer.&lt;/li&gt;
-&lt;li&gt;A random word embedding (512 dimensional vector) is initialized for each word in the question vocabulary. These will be trained along with the entire model.&lt;/li&gt;
-&lt;li&gt;The word and the image embedding are passed through an RNN (LSTM), with image appending as the last (or the first, as suggested in the paper) word for the LSTM.&lt;/li&gt;
-&lt;li&gt;The last hidden state of the RNN is mapped to a 1000 dimensional vector(representing 1000 answers) using a fully connected layer.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Notice that &lt;strong&gt;this is one of the most intuitive way to connect the image and text embeddings&lt;/strong&gt;. You can experiment with your own architectures and most of them work reasonably well. The idea is to relate the answer to text and image features, captured through RNN and CNN respectively.&lt;/p&gt;
-
-&lt;p&gt;Refer to the &lt;a href=&#34;https://github.com/abhshkdz/neural-vqa&#34;&gt;awesome torch implementation of VQA&lt;/a&gt; for the code. I implemented this architecture in tensorflow and it is hypnotizing to see the model training! Refer to &lt;a href=&#34;https://github.com/paarthneekhara/neural-vqa-tensorflow&#34;&gt;github.com/paarthneekhara/neural-vqa-tensorflow&lt;/a&gt; for the code in tensorflow and sample predictions. You can play with the pre-trained model.&lt;/p&gt;
-
-&lt;h4 id=&#34;image-synthesis-from-text&#34;&gt;Image Synthesis From Text&lt;/h4&gt;
-
-&lt;p&gt;We can picture a novel while reading it because our mind understands the correspondence between text and images. The way this is simulated on a machine, is by conditioning a generative model with the text features.&lt;/p&gt;
-
-&lt;p&gt;A &lt;strong&gt;Generative Adversarial Network&lt;/strong&gt; is trained for generating images from random noise. An &lt;a href=&#34;https://openai.com/blog/generative-models/&#34;&gt;excellent blog/tutorial&lt;/a&gt;
-for understanding how they work is published by Open AI. A generative network generates an image and a discriminative network judges whether an image is a generated image or a real image. A discriminative network is trained for judging real and generated images, while the generative network is trained for fooling the discriminator by producing images that are deceivingly real.&lt;/p&gt;
-
-&lt;p&gt;I cannot convincingly relate this image generation with the human mind, but this concept is super interesting and effective!
-To link the generated images with text, a &lt;strong&gt;conditional generative adversarial model&lt;/strong&gt; is used. &lt;a href=&#34;https://arxiv.org/abs/1605.05396&#34;&gt;Generative Adversarial Text to Image Synthesis&lt;/a&gt; - This paper implements one such conditional adversarial model.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;/blogs/genmodel.jpeg&#34; style = &#34;height : 200px&#34;&gt;
-&lt;div style = &#34;font-size:12px&#34;&gt;Image Source: &lt;a href=&#34;https://arxiv.org/abs/1605.05396&#34;&gt;https://arxiv.org/abs/1605.05396&lt;/a&gt;  &lt;/div&gt;&lt;/p&gt;
-
-&lt;p&gt;I implemented the GAN-CLS algorithm in the above paper using &lt;a href=&#34;https://github.com/ryankiros/skip-thoughts&#34;&gt;skip-thought-vectors&lt;/a&gt; for embedding the captions. Some of the sample predictions are:&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Caption&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Generated Images&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;the flower shown has yellow anther red pistil and bright red petals&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/SknZ3Sg.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower has petals that are yellow, white and purple and has dark lines&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/8zsv9Nc.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;the petals on this flower are white with a yellow center&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/vvzv1cE.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower has a lot of small round pink petals.&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/w0zK1DC.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;this flower is orange in color, and has petals that are ruffled and rounded.&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/VfBbRP1.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td&gt;the flower has yellow petals and the center of it is brown&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;&lt;img src=&#34;http://i.imgur.com/IAuOGZY.jpg&#34; alt=&#34;&#34; /&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Refer to &lt;a href=&#34;https://github.com/paarthneekhara/text-to-image&#34;&gt;github.com/paarthneekhara/text-to-image&lt;/a&gt; for the code and a pre-trained model.&lt;/p&gt;
-
-&lt;h2 id=&#34;it-did-not-seem-all-that-simple&#34;&gt;It did not seem all that simple :/&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://cs231n.github.io/&#34;&gt;cs231n.github.io&lt;/a&gt; and the lectures &amp;lt;3 . That&amp;rsquo;s all you need :D .&lt;/p&gt;
-</description>
+      <description>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&amp;rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!
+Language There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language.</description>
     </item>
     
     <item>
@@ -241,16 +38,8 @@ To link the generated images with text, a &lt;strong&gt;conditional generative a
       <pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate>
       
       <guid>/about/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;/profile/dp.jpeg&#34; style = &#34;height : 200px&#34;&gt;
-&lt;br&gt;
-I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from &lt;a href=&#34;http://www.iitr.ac.in/&#34;&gt;IIT Roorkee&lt;/a&gt;. I love solving real world problems. The journeys towards the solutions have been more exciting than the destinations themselves.&lt;/p&gt;
-
-&lt;p&gt;I have been recently working on developing &lt;a href=&#34;http://www.rtifeed.com/about&#34;&gt;RTIFeed&lt;/a&gt;, a web platform to make authentic information available to the masses. This project has kept our team inspired and motivated for the last one year. I can talk endlessly about this project and its potential, but this page is about me!&lt;/p&gt;
-
-&lt;p&gt;Computer Science wasn&amp;rsquo;t a planned affair for me. I started coding in 2013 and the more I explore, the more amazed I am at the sheer beauty of this subject. Machine Learning and Neural Networks in particular make me appreciate mathematics. It quenches the anxiety of my high school days when I felt topics like matrices, calculus were needless!&lt;/p&gt;
-
-&lt;p&gt;I love travelling and photography. They complement each other perfectly. You can find some pictures of my travels and wildlife(mostly birds) &lt;a href=&#34;https://500px.com/paarthneekhara&#34;&gt;here&lt;/a&gt;. I started cycling a year ago and I actually wish a good night to my bike before I sleep! I love &lt;a href=&#34;https://www.strava.com/athletes/13254146&#34;&gt;riding around my home place&lt;/a&gt; - Dehradun, Uttarakhand. Amidst the magnificent Himalyas, this valley is a complete paradise.&lt;/p&gt;
-</description>
+      <description>I am a passionate coder, currently pursuing my Bachelors degree in Computer Science from IIT Roorkee. I love solving real world problems. The journeys towards the solutions have been more exciting than the destinations themselves.
+I have been recently working on developing RTIFeed, a web platform to make authentic information available to the masses. This project has kept our team inspired and motivated for the last one year. I can talk endlessly about this project and its potential, but this page is about me!</description>
     </item>
     
     <item>
@@ -259,27 +48,15 @@ I am a passionate coder, currently pursuing my Bachelors degree in Computer Scie
       <pubDate>Sun, 05 Jan 2014 14:55:57 +0530</pubDate>
       
       <guid>/post/lift-your-heart/</guid>
-      <description>&lt;p&gt;&lt;br&gt;
-The road was misty, dull and dark,&lt;br /&gt;
-No one was there to lift my heart.&lt;br /&gt;
-I&amp;rsquo;m all alone in that scary way,&lt;br /&gt;
-The road less travelled is what they say.&lt;/p&gt;
-
-&lt;p&gt;Was I too brave to take a try?&lt;br /&gt;
-On the road less travelled by.&lt;br /&gt;
-Was I too strong to face the rocks?&lt;br /&gt;
-I want a chance to turn the clocks.&lt;/p&gt;
-
-&lt;p&gt;If the choice was wrong, you make it right,&lt;br /&gt;
-Face the rocks be brave and fight.&lt;br /&gt;
-You know you can, you know you will,&lt;br /&gt;
-Lift your heart, you can&amp;rsquo;t stand still.&lt;/p&gt;
-
-&lt;p&gt;You were sane when you went ahead,&lt;br /&gt;
-You had a thought, believe in that.&lt;br /&gt;
-The thought was deep but wasn&amp;rsquo;t hollow,&lt;br /&gt;
-Make the road for others to follow.&lt;/p&gt;
-</description>
+      <description>The road was misty, dull and dark,
+No one was there to lift my heart.
+I&amp;rsquo;m all alone in that scary way,
+The road less travelled is what they say.
+Was I too brave to take a try?
+On the road less travelled by.
+Was I too strong to face the rocks?
+I want a chance to turn the clocks.
+If the choice was wrong, you make it right,</description>
     </item>
     
     <item>
@@ -288,32 +65,15 @@ Make the road for others to follow.&lt;/p&gt;
       <pubDate>Fri, 19 Oct 2012 00:11:40 +0530</pubDate>
       
       <guid>/post/step-aside-from-the-race/</guid>
-      <description>
-
-&lt;h3 id=&#34;this-is-one-of-my-first-poems-and-my-personal-favourite&#34;&gt;&lt;em&gt;This is one of my first poems and my personal favourite.&lt;/em&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-Step aside from the race to think.&lt;br /&gt;
-Relax and realize the purpose of the race&lt;br /&gt;
-Think from an unconditioned perspective&lt;br /&gt;
-Are we here to survive?&lt;/p&gt;
-
-&lt;p&gt;Why are we so desperate to keep the world moving?&lt;br /&gt;
-Are we merely players in The Big Drama?&lt;br /&gt;
-Being watched by an unknown audience&lt;br /&gt;
-And we humans playing the role of fools and jokers&lt;br /&gt;
-In the more sensible world around us.&lt;/p&gt;
-
-&lt;p&gt;Is this life a gift or a trap?&lt;br /&gt;
-With luxuries merely the baits,&lt;br /&gt;
-To catch the innocent beings&lt;br /&gt;
-In this illusionary and deceiving world.&lt;/p&gt;
-
-&lt;p&gt;Think again before you rejoin the race&lt;br /&gt;
-It’s destination unknown but it&amp;rsquo;s end assured&lt;br /&gt;
-I rejoin the &amp;lsquo;Race&amp;rsquo; once more&lt;br /&gt;
-Would think about it another day&amp;hellip;&lt;/p&gt;
-</description>
+      <description>This is one of my first poems and my personal favourite. 
+Step aside from the race to think.
+Relax and realize the purpose of the race
+Think from an unconditioned perspective
+Are we here to survive?
+Why are we so desperate to keep the world moving?
+Are we merely players in The Big Drama?
+Being watched by an unknown audience
+And we humans playing the role of fools and jokers</description>
     </item>
     
   </channel>

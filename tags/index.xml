@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Paarth&#39;s Blog</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Paarth&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 05 Jan 2014 14:55:57 +0530</lastBuildDate>
+    
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Poetry</title>
+      <link>/tags/poetry/</link>
+      <pubDate>Sun, 05 Jan 2014 14:55:57 +0530</pubDate>
+      
+      <guid>/tags/poetry/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
