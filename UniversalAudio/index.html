@@ -1,0 +1,186 @@
+
+
+<html>
+
+<head>
+
+<script>
+</script>
+
+<title>Universal Audio Adversarial Perturbations</title>
+<style>
+body {
+  max-width: 1000px;
+}
+a {
+  text-decoration:  none;
+}
+
+input[type=checkbox] {
+          display: none;
+      }
+      
+      input[type=checkbox]:checked ~ .abstract  {
+          display: none;
+      }
+      
+      input[type=radio] {
+          display: none;
+      }
+      
+      input[type=radio]:not(:checked) ~ .abstract  {
+          display: none;
+      }
+
+      a:hover {
+          color: #C03030;
+      }
+
+</style>
+</head>
+
+<h1>Universal Adversarial Perturbations for Speech Recognition Systems</h1>
+
+<h2>It is easier to fool your eyes than your ears!</h2>
+
+
+<h2>First Set: -38 dB distortion between original and adversarial</h2>
+
+<!-- something about this here -->
+
+<ul>
+	
+	<li>
+		<span>Example 1</span>
+		<p> </p>
+		<ul>
+			<li>
+				<span class="desc">
+					Original
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/theboyorig.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio0" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio0" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;the boy was getting irritated&rdquo; 
+					</span>
+				</div>
+			</li>
+
+			<li>
+				<span class="desc">
+					Original + Uniform Noise
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/theboyrandom.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio2" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio2" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;the boy as getting ilicated&rdquo; 
+					</span>
+				</div>
+			</li>
+
+			<li>
+				<span class="desc">
+					Original + Universal Perturbation
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/theboyuniv.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio1" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio1" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;you know to ma the voi es geting eli cate&rdquo; 
+					</span>
+				</div>
+			</li>
+
+	
+
+		</ul>
+
+
+	</li>
+
+	<li>
+		<span>Example 2</span>
+		<p> </p>
+		<ul>
+			<li>
+				<span class="desc">
+					Original
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/Org2.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio4" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio4" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;and i better read your books said the bo&rdquo; 
+					</span>
+				</div>
+			</li>
+
+			<li>
+				<span class="desc">
+					Original + Uniform Noise
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/Rand2.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio5" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio5" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;aare ni' better read your wooks said the bo&rdquo; 
+					</span>
+				</div>
+			</li>
+
+			<li>
+				<span class="desc">
+					Original + Universal Perturbation
+				</span>
+
+				<div>
+					<audio controls="controls">
+					<source src="audio/Adv2.wav" />
+					</audio>
+					<a href="#" style="position: relative; top: -.6em"><label for="audio6" style="float: none;">[Reveal Transcription]</label></a>
+					<input checked="checked" id="audio6" type="checkbox" />
+					<span class="abstract" style="position: relative; top: -.6em; padding-left: 0em;">
+					&ldquo;you know to make it an it verter readyour whoks says e voi would a&rdquo; 
+					</span>
+				</div>
+			</li>
+
+	
+
+		</ul>
+
+
+	</li>
+
+
+
+
+</ul>
+
+<!-- ******************************************************************************** -->
+
+
+</html>
+
