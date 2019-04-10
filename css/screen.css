@@ -107,7 +107,7 @@ a.archive-link,
 .article-nav {
   margin: auto;
   /*max-width: 800px;*/
-  width: 60%;
+  width: 70%;
 }
 
 .full_width_image {
@@ -345,7 +345,7 @@ nav {
   margin-bottom: 2em;
   text-align: center;
   margin: 20px auto 2em auto;
-  max-width: 600px;
+  max-width: 70%;
 }
 nav ul {
   list-style: none;

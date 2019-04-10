@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Paarth&#39;s Blog</title>
+    <title>Posts on Paarth Neekhara</title>
     <link>/post/</link>
-    <description>Recent content in Posts on Paarth&#39;s Blog</description>
+    <description>Recent content in Posts on Paarth Neekhara</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 26 Aug 2016 16:28:15 +0530</lastBuildDate>
@@ -19,40 +19,6 @@
       <guid>/post/simple-is-awesome/</guid>
       <description>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&amp;rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!
 Language There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language.</description>
-    </item>
-    
-    <item>
-      <title>Lift Your Heart</title>
-      <link>/post/lift-your-heart/</link>
-      <pubDate>Sun, 05 Jan 2014 14:55:57 +0530</pubDate>
-      
-      <guid>/post/lift-your-heart/</guid>
-      <description>The road was misty, dull and dark,
-No one was there to lift my heart.
-I&amp;rsquo;m all alone in that scary way,
-The road less travelled is what they say.
-Was I too brave to take a try?
-On the road less travelled by.
-Was I too strong to face the rocks?
-I want a chance to turn the clocks.
-If the choice was wrong, you make it right,</description>
-    </item>
-    
-    <item>
-      <title>Step Aside From The Race</title>
-      <link>/post/step-aside-from-the-race/</link>
-      <pubDate>Fri, 19 Oct 2012 00:11:40 +0530</pubDate>
-      
-      <guid>/post/step-aside-from-the-race/</guid>
-      <description>This is one of my first poems and my personal favourite. 
-Step aside from the race to think.
-Relax and realize the purpose of the race
-Think from an unconditioned perspective
-Are we here to survive?
-Why are we so desperate to keep the world moving?
-Are we merely players in The Big Drama?
-Being watched by an unknown audience
-And we humans playing the role of fools and jokers</description>
     </item>
     
   </channel>
