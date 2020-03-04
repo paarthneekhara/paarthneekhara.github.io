@@ -1,5 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Paarth Neekhara</title><link>/</link><description>Recent content on Paarth Neekhara</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 18 Jul 2016 18:07:07 +0530</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>/projects/</link><pubDate>Sat, 10 Dec 2016 12:34:19 +0530</pubDate><guid>/projects/</guid><description>Deep Learning Projects ByteNet - Tensorflow Implemented the dilated convolutional ByteNet model of neural machine translation from the paper Neural Machine Translation in Linear Time .
-Text To Image Synthesis Using Thought Vectors Generative Adversarial Text to Image Synthesis using skip-thought vectors. Implemented the GAN-CLS algorithm from the paper Generative Adversarial Text to Image Synthesis and conditioned the model using text-embeddings from Skip Thought Vectors.
-Caption Generated Images the flower shown has yellow anther red pistil and bright red petals this flower has petals that are yellow, white and purple and has dark lines the petals on this flower are white with a yellow center this flower has a lot of small round pink petals.</description></item><item><title>The Important Things In Life Are Often Simple</title><link>/post/simple-is-awesome/</link><pubDate>Fri, 26 Aug 2016 16:28:15 +0530</pubDate><guid>/post/simple-is-awesome/</guid><description>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&amp;rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!
-Language There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language.</description></item><item><title/><link>/about/</link><pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate><guid>/about/</guid><description>I am a PhD student in Computer Science at UC San Diego jointly advised by Professor Julian McAuley and Professor Shlomo Dubnov. I am currently working on machine learning for audio signal processing and also exploring vulnerabilities in neural network based sequence models. I received my undergraduate (B. Tech) degree in Computer Science from Indian Institute of Technology (IIT), Roorkee in 2017.
-Besides my research, I lead the software engineering team at Blue Water Trade Winds.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Paarth Neekhara</title>
+    <link>/</link>
+    <description>Recent content on Paarth Neekhara</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 18 Jul 2016 18:07:07 +0530</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/projects/</link>
+      <pubDate>Sat, 10 Dec 2016 12:34:19 +0530</pubDate>
+      
+      <guid>/projects/</guid>
+      <description>Deep Learning Projects  ByteNet - Tensorflow Implemented the dilated convolutional ByteNet model of neural machine translation from the paper Neural Machine Translation in Linear Time .
+ Text To Image Synthesis Using Thought Vectors Generative Adversarial Text to Image Synthesis using skip-thought vectors. Implemented the GAN-CLS algorithm from the paper Generative Adversarial Text to Image Synthesis and conditioned the model using text-embeddings from Skip Thought Vectors.
+   Caption Generated Images     the flower shown has yellow anther red pistil and bright red petals    this flower has petals that are yellow, white and purple and has dark lines    the petals on this flower are white with a yellow center    this flower has a lot of small round pink petals.</description>
+    </item>
+    
+    <item>
+      <title>The Important Things In Life Are Often Simple</title>
+      <link>/post/simple-is-awesome/</link>
+      <pubDate>Fri, 26 Aug 2016 16:28:15 +0530</pubDate>
+      
+      <guid>/post/simple-is-awesome/</guid>
+      <description>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&amp;rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!
+Language There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/about/</link>
+      <pubDate>Mon, 18 Jul 2016 18:07:07 +0530</pubDate>
+      
+      <guid>/about/</guid>
+      <description>I am a Masters student in Computer Science at UC San Diego and will be continuing into the PhD program at UC San Diego from Fall 2019 onwards. I am jointly advised by Professor Julian McAuley and Professor Shlomo Dubnov. I am currently working on machine learning for audio signal processing and also exploring vulnerabilities in neural network based sequence models.
+I received my undergraduate (B. Tech) degree in Computer Science from Indian Institute of Technology (IIT), Roorkee in 2017.</description>
+    </item>
+    
+  </channel>
+</rss>

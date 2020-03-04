@@ -1,5 +1,5 @@
 @import url('//fonts.googleapis.com/css?subset=latin,cyrillic-ext,latin-ext,cyrillic&family=Open+Sans+Condensed:300|Open+Sans:400,600,400italic,600italic|Merriweather:400,300,300italic,400italic,700,700italic|Roboto+Slab:400,300');
-@import url('//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
+@import url('//netdna.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.css');
 /* === Core Styles === */
 body {
   background-color: #ffffff;
@@ -104,37 +104,12 @@ h1 {
 article,
 article.preview,
 a.archive-link,
-.article-nav {
-  margin: auto;
-  /*max-width: 800px;*/
-  width: 70%;
+.article-nav,
+.terms-list {
+  margin: 20px auto;
+  max-width: 900px;
+  width: 90%;
 }
-
-.full_width_image {
-    margin-left:-34%; 
-    width : 167.5%
-}
-
-/*.post_image {
-  max-width: 100%;
-}*/
-
-@media (max-width: 800px) {
-  article,
-  article.preview,
-  a.archive-link,
-  .article-nav {
-    margin: auto;
-    /*max-width: 800px;*/
-    width: 90%;
-  }
-
-  .full_width_image {
-    margin-left:-6%; 
-    width : 112%;
-  }
-}
-
 #site-head img {
   max-width: 100%;
 }
@@ -298,9 +273,9 @@ h1.blog-title a:hover {
   /*color: #178b6b;*/
   text-decoration: none;
 }
-section.post-content img:not(.full_width_image){
+section.post-content img {
   display: block;
-  /*margin: auto;*/
+  margin: 0 auto;
   max-width: 100%;
 }
 section.preview.archive h2 {
@@ -319,7 +294,7 @@ img.userimage {
 }
 /* === Footer === */
 footer {
-  /*background: rgba(0, 0, 0, 0.05);*/
+  background: rgba(0, 0, 0, 0.05);
   margin: 4em 0 0;
   padding: 2em 0;
   text-align: center;
@@ -345,7 +320,7 @@ nav {
   margin-bottom: 2em;
   text-align: center;
   margin: 20px auto 2em auto;
-  max-width: 70%;
+  max-width: 900px;
 }
 nav ul {
   list-style: none;
@@ -446,6 +421,17 @@ a.archive-link {
   /*color: #178b6b;*/
   text-decoration: none;
 }
+/* === Terms lists === */
+.terms-list ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.terms-list ul li {
+  margin: 0;
+  padding: 0;
+}
+
 /* === Extras === */
 .gist {
   margin-top: 1em;
