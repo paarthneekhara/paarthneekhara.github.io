@@ -23,7 +23,8 @@ p,
 li,
 dt,
 dd {
-  font-family: "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
+  /*font-family: "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;*/
 }
 h1,
 .post-meta {
@@ -93,7 +94,8 @@ kbd {
 }
 h1 {
   color: #151515;
-  font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
+  /*font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;*/
   font-size: 36px;
   font-weight: 400;
   line-height: 42px;
@@ -117,7 +119,7 @@ article.preview {
   margin-bottom: 4em;
 }
 article.preview p.readmore {
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   margin-top: 1em;
   text-transform: uppercase;
   font-weight: 400;
@@ -197,7 +199,7 @@ section.share p {
   margin: 0;
 }
 section.author h4 {
-  font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   font-weight: 400;
   margin-bottom: 4px;
 }
@@ -206,7 +208,7 @@ section.share p.info {
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
 }
 section.share p.info.prompt {
   top: -5px;
@@ -237,7 +239,6 @@ blockquote {
 }
 .post-meta {
   color: #95a5a6;
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-size: 18px;
   font-weight: 300;
   margin-top: 0.3em;
@@ -332,7 +333,7 @@ nav ul {
 }
 nav ul li {
   display: inline-block;
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   font-size: 18px;
   font-weight: 300;
   margin: 0;
@@ -510,7 +511,7 @@ a.archive-link {
 /* Tables */
 table {
   width: 100%;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   border-collapse: collapse;
   margin: 1em 0 3em;
 }
@@ -561,7 +562,7 @@ section.post-content h4 {
   margin-bottom: -6px;
 }
 section.post-content h4 {
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   font-size: 23px;
   text-transform: uppercase;
   font-weight: 300;
@@ -608,7 +609,7 @@ p.backtotop {
   font-size: 16px;
   line-height: 20px;
   text-transform: uppercase;
-  font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Work Sans", Arial, sans-serif;
   top: 5px;
   position: relative;
   text-align: left;
