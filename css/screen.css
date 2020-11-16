@@ -3,7 +3,7 @@
 /* === Core Styles === */
 body {
   background-color: #ffffff;
-  color: #596364; /* darker color */
+  color: #282828; /* darker color */
   font-size: 15px;
   font-weight: 100;
   line-height: 1.6em;
@@ -653,7 +653,7 @@ hr {
 }
 
 section.footer-social {
-  margin-bottom: 23px;
+  /*margin-bottom: 23px;*/
   font-size: 17px;
 }
 
