@@ -359,6 +359,9 @@ nav.menu li:last-child {
   nav.menu li {
     font-size: 10px;
   }
+  h1.blog-title {
+    font-size: 35px;
+  }
 }
 nav.pagination li:first-child {
   margin-left: 0;
