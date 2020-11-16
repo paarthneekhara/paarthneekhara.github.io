@@ -3,7 +3,7 @@
 /* === Core Styles === */
 body {
   background-color: #ffffff;
-  color: #282828; /* darker color */
+  /*color: #282828;  darker color */
   font-size: 15px;
   font-weight: 100;
   line-height: 1.6em;
@@ -355,9 +355,9 @@ nav.menu li {
 nav.menu li:last-child {
   margin: 0;
 }
-@media only screen and (min-width: 320px) and (max-width: 662px) {
+@media only screen and (min-width: 320px) and (max-width: 750px) {
   nav.menu li {
-    display: block;
+    font-size: 10px;
   }
 }
 nav.pagination li:first-child {
