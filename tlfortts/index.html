@@ -142,7 +142,6 @@ function fill_audio_table(tbody_id, techniques, examples, task, num_examples, au
 
 var audio_examples = [
 	[8051, 1],
-	[8051, 2],
 	[8051, 3],
 ]
 
@@ -150,19 +149,19 @@ var _techniques = [ "real_actual", "synthesized_All-nomix"];
 fill_audio_table("original_tbody", _techniques, audio_examples, "text", audio_examples.length, 300);
 
 var audio_examples = [
-	[92, 1],
-	[92, 2],
-	[92, 3],
-	[6097, 1],
-	[6097, 2],
-	[6097, 3],
+	[92, 39],
+	[92, 9],
+	[92, 26],
+	[6097, 31],
+	[6097, 4],
+	[6097, 13],
 ]
 
 
 var _techniques = [ "real_actual", "synthesized_1-nomix", "synthesized_5-nomix", "synthesized_30-nomix", "synthesized_60-nomix", "synthesized_All-nomix"];
 fill_audio_table("nomixing_tbody", _techniques, audio_examples, "text", audio_examples.length, 180);
 
-var _techniques = [ "real_actual", "synthesized_1-mix", "synthesized_5-mix", "synthesized_30-mix", "synthesized_60-mix", "synthesized_All-mix"];
+var _techniques = [ "real_actual", "synthesized_1-mix", "synthesized_5-mix", "synthesized_30-mix", "synthesized_60-mix", "synthesized_All-nomix"];
 fill_audio_table("mixing_tbody", _techniques, audio_examples, "text", audio_examples.length, 180);
 
 
