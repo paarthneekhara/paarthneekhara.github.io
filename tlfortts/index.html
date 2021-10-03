@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Adapting TTS models For New Speakers using Transfer Learning</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style_examples.css">
+
+</head>
+<body>
+
+	
+	
+	
+
+
+	<div class="container">
+		<center>
+		<h1>Adapting TTS models For New Speakers using Transfer Learning</h1>
+		<h4 style="text-align: center"><a href="https://paarthneekhara.github.io/">Paarth Neekhara<sup>1</sup></a>, <a href="https://developer.nvidia.com/blog/author/jasoli/">Jason Li<sup>2</sup></a>, <a href="https://developer.nvidia.com/blog/author/bginsburg/">Boris Ginsburg<sup>2</sup></a><br><br><sup>1</sup>University of California San Diego<br><sup>2</sup>NVIDIA</h4>
+        </center>
+		<div style="border: 1px solid black; margin-top: 20px; margin-bottom: 10px;"></div>
+		<p>We present sound examples for the experiments in our paper <i>Adapting TTS models For New Speakers using Transfer Learning</i>. In this work, we adapt a single speaker TTS system for new speakers using a few minutes of training data. We use a baseline TTS model that is trained on speaker 8051 (Female) of the HiFiTTS dataset and adapt it for speakers 92 (Female) and 6097 (Male) using two finetuning techniques. We first present the original speaker's audio samples and then the synthesis results for our two target speakers.</p>
+		<div style="border-top: 1px solid grey;"></div>
+		
+		<div class="row">
+			<center>
+			<h3>Original Speaker Samples</h3>
+			</center>
+			<p>The original TTS model is trained on speaker 8051 on more than 27 hours of speech and text pairs. The spectrogram synthesis model is a FastPitch model with a learnable alignment module, while the vocoder model is a HiFiGAN vocoder. The real validation examples along with the synthesized examples for the validation text are presented in the table below.</p>
+			
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Speaker</th>
+						<th>Real Validation Sample</th>
+						<th>Synthesized <br> >27 hrs Train from Scratch</th>
+
+					</tr>
+				</thead>
+				<tbody id = "original_tbody" >
+					
+				</tbody>
+			</table>
+
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Direct Finetuning</h3>
+			</center>
+			<p>In this finetuning approach, we finetune all the parameters of the pre-trained TTS models directly on the data of the new speaker. For finetuning the spectrogram-synthesis model, we require the text and speech pairs of the new speaker, while for the vocoder model, we only require the speech examples of the speaker for generating the spectrogram and waveform pairs. The real validation examples along with the synthesized examples from the validation text are presented in the table below. </p>
+			
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Target Speaker</th>
+						<th>Real Validation Sample</th>
+						<th>Synthesized <br>1 min Fine Tuning</th>
+						<th>Synthesized <br>5 min Fine Tuning</th>
+						<th>Synthesized <br>30 min Fine Tuning</th>
+						<th>Synthesized <br>60 min Fine Tuning</th>
+						<th>Synthesized <br> >27 hrs Train from Scratch</th>
+
+					</tr>
+				</thead>
+				<tbody id = "nomixing_tbody" >
+					
+				</tbody>
+			</table>
+
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Mixed Finetuning</h3>
+			</center>
+			<p>Direct finetuning can result in overfitting or catastrophic forgetting when the amount of training data of the new speaker is very limited. To address this challenge, we explore another transfer learning method in which we mix the original speaker's data with the new speaker's data during finetuning. In this setting, we assume that we have enough training samples of the original speaker while the number of samples of the new speaker is limited. We create a data-loading pipeline that samples equal number of examples from the original and new speaker in each mini-batch. We add a speaker embedding layer in the spectrogram synthesis module, to make it suitable for multiple speaker training. The vocoder model architecture is unchanged and the model is finetuned on the spectrogram and audio pairs of the two speakers.
+			The real validation examples along with the synthesized examples from the validation text are presented in the table below. </p>
+			
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Target Speaker</th>
+						<th>Real Validation Sample</th>
+						<th>Synthesized <br>1 min Fine Tuning</th>
+						<th>Synthesized <br>5 min Fine Tuning</th>
+						<th>Synthesized <br>30 min Fine Tuning</th>
+						<th>Synthesized <br>60 min Fine Tuning</th>
+						<th>Synthesized <br> >27 hrs Train from Scratch</th>
+
+					</tr>
+				</thead>
+				<tbody id = "mixing_tbody" >
+					
+				</tbody>
+			</table>
+
+		</div>
+
+
+		<div class="row">
+		</div>
+
+		<div class="row">
+		</div>
+
+	</div>
+</body>
+	
+	
+	
+<script type="text/javascript">
+
+
+
+
+function fill_audio_table(tbody_id, techniques, examples, task, num_examples, audio_width){
+	console.log(examples);
+	for(var i = 0; i < num_examples; i++){
+		var tr_string = '<tr>';
+		// tr_string += '<td><audio class="class_audio" controls="" style="width:'+ audio_width +'px"><source src="audio_examples/' + task + '/' + i + '-' + techniques[0] + '.wav" type="audio/wav">Your browser does not support the audio tag</audio></td>';
+
+		tr_string += '<td>Speaker ' + examples[i][0]  + '</td>';
+		var base_url = "https://expressivecloning.s3.us-east-2.amazonaws.com/transferlearning/naturalness/"
+		for(var j = 0; j < techniques.length; j++){
+			var audio_url = base_url + techniques[j] + "_" + examples[i][0] + "_" + examples[i][1] + ".wav";
+			tr_string += '<td><audio class="class_audio" controls="" style="width:'+ audio_width +'px; text-align: center;"><source src="' + audio_url + '" type="audio/wav">Your browser does not support the audio tag</audio></td>';
+		}
+
+		tr_string += "</tr>"
+		$("#" + tbody_id).append(tr_string)
+	}
+}
+
+
+var audio_examples = [
+	[8051, 1],
+	[8051, 2],
+	[8051, 3],
+]
+
+var _techniques = [ "real_actual", "synthesized_All-nomix"];
+fill_audio_table("original_tbody", _techniques, audio_examples, "text", audio_examples.length, 300);
+
+var audio_examples = [
+	[92, 1],
+	[92, 2],
+	[92, 3],
+	[6097, 1],
+	[6097, 2],
+	[6097, 3],
+]
+
+
+var _techniques = [ "real_actual", "synthesized_1-nomix", "synthesized_5-nomix", "synthesized_30-nomix", "synthesized_60-nomix", "synthesized_All-nomix"];
+fill_audio_table("nomixing_tbody", _techniques, audio_examples, "text", audio_examples.length, 180);
+
+var _techniques = [ "real_actual", "synthesized_1-mix", "synthesized_5-mix", "synthesized_30-mix", "synthesized_60-mix", "synthesized_All-mix"];
+fill_audio_table("mixing_tbody", _techniques, audio_examples, "text", audio_examples.length, 180);
+
+
+
+</script>	
+
+
+</html>
