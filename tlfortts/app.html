@@ -1,0 +1,193 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Expressive Neural Voice Cloning - Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
+
+    <style type="text/css">
+        .appborder {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <center>
+    <h1>Expressive Neural Voice Cloning Demo</h1>
+    </center>
+
+
+    <div style="border: 1px solid black; margin-top: 10px; margin-bottom: 10px;"></div>
+    
+
+    <div id="whole_container" style="display: none;">
+        <p style="font-size: 15px;">
+        Please record audio for the following texts by pressing the <b>Record</b> and <b>Stop</b> buttons. Try to be as accurate as possible while reading the texts and avoid silences in the beginning and at the end of a recording. You may re-record a particular text any number of times. When you are done with recording all the texts, press the upload button. After the upload is complete, you will be able to hear the results of zeroshot voice cloning and model adaptation will start in the background. 
+        <br>
+        <br>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="width: 10px;">SNo.</th>
+                    <th>Transcript</th>
+                    <th style="width: 20px;">Record</th>
+                    <th style="width: 20px;">Stop</th>
+                    <th style="width: 300px;">Recorded Audio</th>
+                </tr>
+            </thead>
+            <tbody id = "user_recordings" >
+                
+            </tbody>
+        </table>
+
+        <div>
+            <select id="encodingTypeSelect" style="display: none;">
+              <option value="wav">Waveform Audio (.wav)</option>
+              <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
+              <option value="ogg">Ogg Vorbis (.ogg)</option>
+            </select>
+        </div>
+
+        <div class="col-md-12">
+            <div class="col-md-8"></div>
+            <div class="col-md-4">
+                <button id="uploadButton" class="col-md-12">Upload</button>
+            </div>
+        </div>
+        
+        <div style="display: none;">
+            <div id="formats"></div>
+            <pre>Log</pre>
+            <pre id="log"></pre>
+
+            <pre>Recordings</pre>
+            <ol id="recordingsList"></ol>
+        </div>
+        
+        <!-- <center>
+            <div id="loader_div" style="z-index: 1000; position: absolute;">
+                
+                    <img src="gifs/loader.gif" height="100px" width="100px" style="margin-left: 50%;">  
+                
+            </div>
+        </center> -->
+        <div style="padding-top: 30px;">
+            
+            <div clsas="appborder" style="border-top: 1px solid gray; margin-top: 10px; margin-bottom: 10px;"></div>
+            <div class="col-md-12" id="fine_tune_bar_div" style="display: none;">
+                <div class="col-md-3">
+                    <button id="finetuneButton" class="col-md-12" style="display: none;">Fine Tune Model</button>
+                    Model Adaptation Progress:
+                </div>
+                <div class="col-md-9">
+                    <div class="progress">
+
+                        <div class="progress-bar" role="progressbar" id="finetune_bar", style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+            <div class="col-md-12 appborder" style="border-top: 1px solid gray;  margin-bottom: 10px;"></div>
+            <center>
+            <img src="gifs/loader.gif" id="loader" height="60px" width="60px" style="display: none;">   
+            </center>
+
+            <div class="col-md-12" id="style_transfer_results_div" style="display: none;">
+                
+                <!-- <div style="border-top: 1px solid gray; margin-top: 10px; "></div> -->
+                <div class="col-md-12" style="padding-bottom: 20px;">
+                    <div class="col-md-4">
+                    Style Transfer
+                    </div>
+                    <div class="col-md-4">
+                        <button id="styleTransferButtonZeroshot" class="col-md-12" style="display: none;">Style Transfer - ZeroShot</button>
+
+                    </div>
+                    <div class="col-md-4">
+                        <button id="styleTransferButtonFinetuning" class="col-md-12" style="display: none;">Style Transfer - Finetuning</button>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <th>Reference Type</th>
+                        <th>Style Reference Audio</th>
+                        <th>Synthesized - Zeroshot</th>
+                        <th>Synthesized - Finetuned</th>
+                    </thead>
+                    <tbody id = "style_transfer_table">
+                        <tr>
+                            <td>
+                                <input type="file" id="style_reference_user" name="style_reference_user" accept="audio/*">
+                            </td>
+                            <td id="style_reference_user_audio">
+                                
+                            </td>
+                            <td id="custom_zeroshot">
+                                
+                            </td>
+                            <td id="custom_finetuned">
+                                
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="col-md-12 appborder" style="border-top: 1px solid gray;  margin-bottom: 10px;"></div>
+            <div class="col-md-12" id = "text_to_speech_div" style="display: none;">
+                
+                
+                <table class="table">
+                    <thead>
+                        <th>Input Text</th>
+                        <th></th>
+                        <th>Zeroshot</th>
+                        <th>Finetuned</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="width: 50%;">
+                            <input type="text" id="input_text" style="width: 100%;">
+                            </td>
+                            <td>
+                                <button id ="tts_button">Synthesize</button>
+                            </td>
+                            <td id = "text_to_speech_zeroshot">
+                                    
+                            </td>
+                            <td id = "text_to_speech_finetuning">
+                                    
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+    
+    <script src="js/WebAudioRecorder.min.js"></script>
+    <script src="js/app.js"></script>
+
+
+
+
+</body>
+
+</html>
