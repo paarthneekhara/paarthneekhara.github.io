@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Adapting TTS models For New Speakers using Transfer Learning</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style_examples.css">
+
+</head>
+<body>
+
+	
+	
+	
+
+
+	<div class="container" style="width: 80%">
+		<center>
+		<h3>FaceSigns: Semi-Fragile Neural Watermarks for Media Authentication and Countering Deepfakes</h3>
+        <h4 style="text-align: center"><a href="https://paarthneekhara.github.io/">*Paarth Neekhara</a>, <a href="https://shehzeen.github.io/">*Shehzeen Hussain</a>, <a href="https://xinqiaozhang.github.io/">Xinqiao Zhang</a>, <a href="https://khuang.sdsu.edu/">Ke Huang</a>, <a href="https://cseweb.ucsd.edu/~jmcauley/">Julian McAuley</a>, <a href="https://farinaz.eng.ucsd.edu/home">Farinaz Koushanfar</a><h5>University of California, San Diego</h5><h5>San Diego State University</h5><i>* Equal contribution</i></h4>
+		<h4><a href="https://arxiv.org/abs/2204.01960" target="_blank">[Paper]</a> <a href="https://github.com/paarthneekhara/FaceSigns" target="_blank">[Demo]</a></h4>
+        </center>
+		<div style="border: 1px solid black; margin-top: 20px; margin-bottom: 10px;"></div>
+		<p style="text-align: justify;">FaceSigns is a semi-fragile image watermarking framework for media authentication. Instead of identifying and detecting fake media using visual artifacts, we propose to proactively embed a semi-fragile watermark into a real image so that we can prove its authenticity when needed. Our watermarking framework is designed to be fragile to facial manipulations or tampering while being robust to benign image-processing operations such as image compression, scaling, saturation, contrast adjustments etc. This allows images shared over the internet to retain the verifiable watermark as long as face-swapping or any other Deepfake modification technique is not applied.</p>
+		<center><img src="images/overview.png" style="width: 70%;"></center>
+		<br>
+		<div style="border-top: 1px solid grey;"></div>
+		
+		<div class="row">
+			<center>
+			<h3>Methodology</h3>
+			</center>
+			<p>FaceSigns encoder-decoder framework is trained to embed a bit string into the image pixels such that:</p>
+			<ol>
+			  <li>1) The encoded image looks visually similar to the original image.</li>
+			  <li>2) The message is recoverable when the image undergoes benign transformatinos (simulated using differentiable image operations during training)</li>
+			  <li>3) The message is not recoverable when facial tampering is applied.</li>
+			</ol>
+			<p style="text-align: justify;">We develop a differentiable procedure to simulate facial watermark tampering during training (details mentioned in the paper). We train the framework to optimize loss functions corresponding to each of the above objectives. Using only a limited set of benign and malicious transformations during training, we find that our framework is able to generalize to unseen benign and malicious transformations and reliably identify DeepFake manipulations.</p>
+			<center><img src="images/method.png" style="width: 90%;"></center>
+			<br>
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Results</h3>
+			</center>
+			<br>
+			<p>FaceSigns is able to recover messages with a high bit recovery accuracy when transformations such as instagram filters and JPEG-compression are applied thereby demonstrating robustness to benign transformations. We then apply malicious transformations such as face-swapping using different deep learning and computer graphics techniques. We find that the face-swapping techniques completely break the embedded signature. This is in contrast to prior works on robust image watermarking and steganography that can decode signatures from even facially manipulated images. This selective fragility of FaceSigns makes it suitable for reliably identifying facial manipulation to images signed using the FaceSigns encoder.
+			</p>
+			<center><img src="images/image_examples.png" style="width: 100%;"></center>
+			<center>Fig: Examples of original and signed images using FaceSigns encoder along with the residual visualization. </center>
+			<br>
+			<br>
+			<center><img src="images/benign.png" style="width: 100%;"></center>
+			<center>Fig: Examples of benign transformations like photo filters and JPEG compression</center>
+			<br>
+			<br>
+			
+			<center><img src="images/malicious.png" style="width: 60%;"></center>
+			<center>Fig: Examples of malicious DeepFake/FaceSwapping transformations</center>
+			<br>
+			<br>
+			<center><img src="images/resultstable.png" style="width: 90%;"></center>
+
+
+
+
+		</div>
+		
+		<div style="width: 80%; margin-left: 10% ;">
+			<center><h3>Citing our Work</h3></center>
+<pre><code>@article{facesigns2022,
+  title={{FaceSigns: Semi-Fragile Neural Watermarks for Media Authentication and Countering Deepfakes}},
+  author={Neekhara, Paarth and Hussain, Shehzeen and Zhang, Xinqiao and Huang, Ke and McAuley, Julian and Koushanfar, Farinaz},
+  journal={arXiv:2204.01960},
+  year={2022}
+}
+
+</code></pre>
+
+		</div>
+
+	</div>
+</body>
+	
+	
+	
+
+
+</html>
