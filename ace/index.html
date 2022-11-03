@@ -35,7 +35,7 @@
 		<div style="border-top: 1px solid grey;"></div>
 		<div class="row">
 			<center>
-			<h3>Voice Converstion for Unseen Speakers</h3>
+			<h3>Voice Converstion for Unseen Speakers (Any-to-Any)</h3>
 			</center>
 			<p>
 				To perform voice conversion for speakers not seen during training, we randomly select 10 male and 10 female speakers from the <i>dev-clean</i> subset of the LibriTTS dataset as our target speakers. Next, we choose 10 random source utterances from the remaining speakers and perform voice conversion for each of the 20 speakers. We present a few audio examples for this experiment in the table below. 
@@ -58,8 +58,11 @@
 		<div style="border-top: 1px solid grey;"></div>
 		<div class="row">
 			<center>
-			<h3>Voice Converstion for Seen Speakers</h3>
+			<h3>Voice Converstion for Seen Speakers (Many-to-Many)</h3>
 			</center>
+			<p>
+				To perform voice conversion for seen speakers, we use the hold-out utterances of speakers seen during training. Similar to the unseen speaker scenario, we select 10 male and 10 female speakers as the target speakers and choose source utterances from other speakers. 
+			</p>
 			<table class="table" style="margin-top: 20px;">
 				<thead>
 					<tr>
@@ -80,6 +83,7 @@
 			<center>
 			<h3>Comparison Against Past Work (Unseen Speakers)</h3>
 			</center>
+			<p>We present audio examples for the same pair of source and target audio using different voice conversion techniques including our own. We use the <i>Adapt</i> mode for our technique (ACE-VC). We produce audio examples for other techniques using the voice convesion inference script provided in the respective github repositories.</p>
 			<table class="table" style="margin-top: 20px;">
 				<thead>
 					<tr>
