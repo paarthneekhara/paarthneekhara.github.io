@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 
-	<title>SiameseVC</title>
+	<title>AceVC</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- Latest compiled and minified Bootstrap CSS -->
@@ -24,11 +24,103 @@
 		<center>
 		<h1>ACE-VC:  Adaptive and Controllable Voice Conversion using Explicitly Disentangled Self-supervised Speech Representations</h1>
 		<h4 style="text-align: center"><a href="https://shehzeen.github.io/">*Shehzeen Hussain<sup>1</sup></a>, <a href="https://paarthneekhara.github.io/">*Paarth Neekhara<sup>1</sup></a>, <a href="https://developer.nvidia.com/blog/author/jocelyn-huang/">Jocelyn Huang<sup>2</sup></a>, <a href="https://developer.nvidia.com/blog/author/jasoli/">Jason Li<sup>2</sup></a>,  <a href="https://developer.nvidia.com/blog/author/bginsburg/">Boris Ginsburg<sup>2</sup></a><br><i>* Equal Contribution</i><br><br><sup>1</sup>University of California San Diego<br><sup>2</sup>NVIDIA</h4>
-		
+		<h4><a href="https://github.com/shehzeen/NeMo/tree/ssl_tts_postintern" target="_blank">[Code]</a></h4>
         </center>
 		<div style="border: 1px solid black; margin-top: 20px; margin-bottom: 10px;"></div>
-		<p>Coming Soon</p>
+		<p>We present audio examples for our paper ACE-VC. To perform zero-shot voice conversion, we use our synthesis model to combine the content embedding of any given source utterance with the speaker embedding of the target speaker, both of which are derived from our Speech Representation Extractor. ACE-VC can perform voice conversion in two modes:</p>
+		<ul>
+			<li><b>Mimic:</b> In this setting, the prosody (speaking rate and pitch modulation) of the synthesized speech matches the prosody of the source utterance. To achieve this, we use the ground-truth pitch contour (derived from Yin algorithm) and durations (derived by grouping SRE representations) during synthesis.</li>
+			<li><b>Adapt:</b> In this setting, the prosody of the synthesized speech is derived from both the source utterance and target speaker's audio. We predict the normalized pitch contour and durations of SRE embeddings based on both the content and speaker embeddings. </li>
+		</ul>
 		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Voice Converstion for Unseen Speakers</h3>
+			</center>
+			<p>
+				To perform voice conversion for speakers not seen during training, we randomly select 10 male and 10 female speakers from the <i>dev-clean</i> subset of the LibriTTS dataset as our target speakers. Next, we choose 10 random source utterances from the remaining speakers and perform voice conversion for each of the 20 speakers. We present a few audio examples for this experiment in the table below. 
+			</p>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th><b>ACE-VC (Adapt)</b></th>
+						<th><b>ACE-VC (Mimic)</b></th>
+					</tr>
+				</thead>
+				<tbody id = "unseen_speakers" >
+					
+				</tbody>
+			</table>
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Voice Converstion for Seen Speakers</h3>
+			</center>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th><b>ACE-VC (Adapt)</b></th>
+						<th><b>ACE-VC (Mimic)</b></th>
+					</tr>
+				</thead>
+				<tbody id = "seen_speakers" >
+					
+				</tbody>
+			</table>
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Comparison Against Past Work (Unseen Speakers)</h3>
+			</center>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th>FragmentVC</th>
+						<th>S3PRL-VC</th>
+						<th>YourTTS</th>
+						<th><b>ACE-VC (Ours)</b></th>
+					</tr>
+				</thead>
+				<tbody id = "comparison_table" >
+					
+				</tbody>
+			</table>
+		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+				<h3>Speaker Embedding TSNEs</h3>
+			</center>
+			We present TSNE plots of speaker embeddings of synthesized and ground-truth audio for both seen and unseen speakers. Speaker embeddings are obtained from SpeakerNet speaker verification model. The lighter colors represent the original utterances and darker colors represent the synthesized utterances for the same speaker. Utterances for each speaker are synthesized from the source utterances of a different speaker.
+			<center>
+			<table>
+				<thead>
+					<tr>
+						<th><b>Seen Speakers</b></th>
+						<th><b>Unseen Speakers</b></th>
+					</tr>
+				</thead>
+				<tbody style="width:100%;">
+					<tr>
+						<td><img src="images/seen.png" width="500"></td>
+						<td><img src="images/unseen.png" width="500"></td>
+					</tr>
+				</tbody>
+			</table>
+			</center>
+			
+		</div>
 
 	</div>
 </body>
@@ -37,6 +129,306 @@
 	
 <script type="text/javascript">
 
+function fill_audio_table(tbody_id, audio_columns, transcripts, audio_width){
+	var num_rows = audio_columns[0].length;
+	var base_url = "https://expressivecloning.s3.us-east-2.amazonaws.com/aceweb/"
+	for(var ridx=0; ridx < num_rows; ridx++){
+		var tr_string = "<tr>";
+		for(var cidx=0; cidx < audio_columns.length; cidx++){
+			if(cidx > 0){
+				var audio_url = base_url + audio_columns[cidx][ridx];
+				tr_string += '<td><audio class="class_audio" controls="" style="width:'+ audio_width +'px; text-align: center;"><source src="' + audio_url + '" type="audio/wav">Your browser does not support the audio tag</audio>';
+				if(cidx == 1){
+					tr_string += '<details><summary style="cursor: pointer; color: #76b900;">[Show transcript]</summary>' + transcripts[ridx] + '</details>'
+				}
+				tr_string += '</td>';
+				
+			}
+			else{
+				tr_string += '<td style="white-space: nowrap; text-align: left">' + audio_columns[cidx][ridx] + '</td>';
+			}
+		}
+		tr_string += "</tr>";
+		$("#" + tbody_id).append(tr_string);
+	}
+	
+}
+
+function fill_audio_table_comparison(tbody_id, audio_columns, transcripts, audio_width){
+	var num_rows = audio_columns[0].length;
+	var base_url = "https://expressivecloning.s3.us-east-2.amazonaws.com/aceweb/"
+	for(var ridx=0; ridx < num_rows; ridx++){
+		var tr_string = "<tr>";
+		for(var cidx=0; cidx < audio_columns.length; cidx++){
+			if(cidx >= 3){
+				base_url = "https://expressivecloning.s3.us-east-2.amazonaws.com/sslttsamt/"
+			}
+			else{
+				base_url = "https://expressivecloning.s3.us-east-2.amazonaws.com/aceweb/"
+			}
+
+			if(cidx > 0){
+				var audio_url = base_url + audio_columns[cidx][ridx];
+				tr_string += '<td><audio class="class_audio" controls="" style="width:'+ audio_width +'px; text-align: center;"><source src="' + audio_url + '" type="audio/wav">Your browser does not support the audio tag</audio>';
+				if(cidx == 1){
+					tr_string += '<details><summary style="cursor: pointer; color: #76b900;">[Show transcript]</summary>' + transcripts[ridx] + '</details>'
+				}
+				tr_string += '</td>';
+				
+			}
+			else{
+				tr_string += '<td style="white-space: nowrap; text-align: left">' + audio_columns[cidx][ridx] + '</td>';
+			}
+			
+		}
+		tr_string += "</tr>";
+		$("#" + tbody_id).append(tr_string);
+	}
+	
+}
+
+var comparison_types_unseen = [
+	"Male to Female",
+	"Female to Female",
+	"Female to Male",
+	"Male to Male",
+]
+
+var unseen_transcripts = [
+	"Going back to camp I procured a light, and after hooping and hallowing for a long time, I heard another groan. This time much louder than before.",
+	"When quite crisp, they are ready for use.",
+	"Various dishes are frequently ornamented and garnished with its graceful leaves and these are sometimes boiled in soups. Although it is more usually confined to English cookery...",
+	"Going back to camp I procured a light, and after hooping and hallowing for a long time, I heard another groan. This time much louder than before.",
+]
+
+var source_utterances_unseen = [
+	"source_0.wav",
+	"source_2.wav",
+	// "source_1.wav",
+	// "source_6.wav",
+	"source_3.wav",
+	"source_0.wav",
+	
+	// "source_3.wav",
+	// "source_5.wav",
+	// "source_2.wav",
+
+	// "source_7.wav",
+	// "source_0.wav",
+	// "source_0.wav",
+	// "source_6.wav",
+	// "source_0.wav",
+
+];
+var target_utterances_unseen = [
+	"targetspeaker_7_0.wav",
+	"targetspeaker_29_0.wav",
+	// 
+	// "targetspeaker_27_0.wav",
+	"targetspeaker_11_0.wav",
+	"targetspeaker_27_0.wav",
+	
+	// "targetspeaker_39_0.wav",
+	
+	// "targetspeaker_11_0.wav",
+	// "targetspeaker_27_0.wav",
+	// "targetspeaker_27_0.wav",
+
+	// "targetspeaker_12_0.wav",
+	// "targetspeaker_16_0.wav",
+	// "targetspeaker_6_0.wav",
+	// "targetspeaker_17_0.wav",
+	// "targetspeaker_25_0.wav",
+	
+];
+
+var mimic_utterances_unseen = [
+	"unseen_mimic_0_TO_7.wav",
+	"unseen_mimic_2_TO_29.wav",
+	"unseen_mimic_3_TO_11.wav",
+	"unseen_mimic_0_TO_27.wav",
+	
+	// "unseen_mimic_1_TO_27.wav",
+	// "unseen_mimic_6_TO_11.wav",
+	// "unseen_mimic_3_TO_39.wav",
+	
+	
+	// "unseen_mimic_5_TO_27.wav",
+	// "unseen_mimic_2_TO_27.wav",
+
+	// "unseen_mimic_7_TO_12.wav",
+	// "unseen_mimic_0_TO_16.wav",
+	// "unseen_mimic_0_TO_6.wav",
+	// "unseen_mimic_6_TO_17.wav",
+	// "unseen_mimic_0_TO_25.wav",
+	
+
+]
+
+var adapt_utterances_unseen = [
+"unseen_pitchadapt_0_TO_7.wav", // m2f, great
+"unseen_pitchadapt_2_TO_29.wav", // f2f good
+"unseen_pitchadapt_3_TO_11.wav", // f2m great
+"unseen_pitchadapt_0_TO_27.wav", // m2m good.
+
+// "unseen_pitchadapt_1_TO_27.wav",
+// "unseen_pitchadapt_6_TO_11.wav",
+// "unseen_pitchadapt_3_TO_39.wav",
+
+// "unseen_pitchadapt_5_TO_27.wav",
+// "unseen_pitchadapt_2_TO_27.wav",
+
+// "unseen_pitchadapt_7_TO_12.wav",
+// "unseen_pitchadapt_0_TO_16.wav",
+// "unseen_pitchadapt_0_TO_6.wav",
+// "unseen_pitchadapt_6_TO_17.wav",
+// "unseen_pitchadapt_0_TO_25.wav",
+
+
+]
+
+var unseen_columns = [
+	comparison_types_unseen,
+	source_utterances_unseen,
+	target_utterances_unseen,
+	adapt_utterances_unseen,
+	mimic_utterances_unseen,
+]
+
+
+var comparison_types_seen = [
+	"Male to Female",
+	"Female to Female",
+	"Female to Male",
+	"Female to Male",
+	"Male to Male",
+]
+
+var seen_transcripts = [
+	"I am convinced that it is as natural for a human being to swim as it is for a duck.",
+	"Here lived Las Casas, a priest who was the Indians' greatest champion in the early days and who was said to be the father of African slavery in the new world.",
+	"Here lived Las Casas, a priest who was the Indians' greatest champion in the early days and who was said to be the father of African slavery in the new world.",
+	"Shoot him through the right elbow if he makes one sour move.",
+	"This is quite sudden said the scare crow.",
+]
+
+var source_utterances_seen = [
+	"source_605.wav",
+	"source_281.wav",
+	"source_281.wav",
+	"source_576.wav",
+	"source_302.wav"
+]
+
+var target_utterances_seen = [
+	"targetspeaker_802_0.wav",
+	"targetspeaker_442_0.wav",
+	"targetspeaker_324_0.wav",
+	"targetspeaker_294_0.wav",
+	"targetspeaker_476_0.wav"
+]
+
+
+var mimic_utterances_seen = [
+	
+	"seen_mimic_605_TO_802.wav",
+	"seen_mimic_281_TO_442.wav",
+	"seen_mimic_281_TO_324.wav",
+	"seen_mimic_576_TO_294.wav",
+	
+	"seen_mimic_302_TO_476.wav"
+]
+
+var adapt_utterances_seen = [
+	"seen_pitchadapt_605_TO_802.wav",
+	"seen_pitchadapt_281_TO_442.wav",
+	"seen_pitchadapt_281_TO_324.wav",
+	"seen_pitchadapt_576_TO_294.wav",
+	
+	"seen_pitchadapt_302_TO_476.wav"
+
+]
+
+
+var seen_columns = [
+	comparison_types_seen,
+	source_utterances_seen,
+	target_utterances_seen,
+	mimic_utterances_seen,
+	adapt_utterances_seen
+]
+
+var comparison_types = [
+	"Male to Female",
+	"Male to Female",
+	"Female to Male",
+	"Female to Male"
+]
+
+var comparison_transcripts = [
+	"What then must be the state of the less known and more distant parts of the island.",
+	"The Sacred Lock of Hair. Reincarnation and the Converse of Spirits.",
+	"When quite crisp, they are ready for use.",
+	"Randall decided on leaving her"
+]
+var source_utterances_comparison = [
+	"source_8.wav",
+	"source_1.wav",
+	"source_2.wav",
+	"source_7.wav"
+
+]
+
+var target_utterances_comparison = [
+	"targetspeaker_16_0.wav",
+	"targetspeaker_8_0.wav",
+	"targetspeaker_11_0.wav",
+	"targetspeaker_11_0.wav"
+]
+
+var yourtts_comparison = [
+	"yourtts_unseen_32_source_8_targetspeaker_16_0.wav",
+	"yourtts_unseen_185_source_1_targetspeaker_8_0.wav",
+	"yourtts_unseen_0_source_2_targetspeaker_11_0.wav",
+	"yourtts_unseen_143_source_7_targetspeaker_11_0.wav"
+]
+
+var fragment_comparison = [
+	"medium_unseen_91_source_8TOtargetspeaker_16_0_generated_e2e.wav",
+	"medium_unseen_84_source_1TOtargetspeaker_8_0_generated_e2e.wav",
+	"medium_unseen_74_source_2TOtargetspeaker_11_0_generated_e2e.wav",
+	"medium_unseen_194_source_7TOtargetspeaker_11_0_generated_e2e.wav",
+]
+
+var s2vc_comparison = [
+	"s2vc_unseen_32_source_8_targetspeaker_16_0.wav",
+	"s2vc_unseen_185_source_1_targetspeaker_8_0.wav",
+	"s2vc_unseen_0_source_2_targetspeaker_11_0.wav",
+	"s2vc_unseen_143_source_7_targetspeaker_11_0.wav"
+]
+
+var ours_comparison = [
+	"ours_unseen_135_swapped_source_16_8.wav",
+	"ours_unseen_44_swapped_source_8_1.wav",
+	"ours_unseen_182_swapped_source_11_2.wav",
+	"ours_unseen_120_swapped_source_11_7.wav"
+]
+
+var comparison_columns = [
+	comparison_types,
+	source_utterances_comparison,
+	target_utterances_comparison,
+	fragment_comparison,
+	s2vc_comparison,
+	yourtts_comparison,
+	ours_comparison
+]
+
+
+
+fill_audio_table("unseen_speakers", unseen_columns,unseen_transcripts, 250)
+fill_audio_table("seen_speakers", seen_columns, seen_transcripts, 250)
+fill_audio_table_comparison("comparison_table", comparison_columns, comparison_transcripts, 170)
 
 </script>	
 

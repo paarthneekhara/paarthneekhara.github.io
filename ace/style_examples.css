@@ -59,6 +59,9 @@ table, th, td {
   /*margin: 0px;*/
 }
 
+th {
+  font-weight: 100;
+}
 td {
   height: 40px;
 }
