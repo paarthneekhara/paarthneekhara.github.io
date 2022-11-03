@@ -90,9 +90,9 @@
 						<th>Conversion Type</th>
 						<th>Source Utterance</th>
 						<th>Target Speaker</th>
-						<th>MediumVC</th>
-						<th>S3PRL-VC</th>
-						<th>YourTTS</th>
+						<th><a href="https://github.com/BrightGu/MediumVC">MediumVC</a></th>
+						<th><a href="https://github.com/s3prl/s3prl">S3PRL-VC</a></th>
+						<th><a href="https://github.com/Edresson/YourTTS">YourTTS</a></th>
 						<th><b>ACE-VC (Ours)</b></th>
 					</tr>
 				</thead>
@@ -106,7 +106,7 @@
 			<center>
 				<h3>Speaker Embedding TSNEs</h3>
 			</center>
-			We present TSNE plots of speaker embeddings of synthesized and ground-truth audio for both seen and unseen speakers. Speaker embeddings are obtained from SpeakerNet speaker verification model. The lighter colors represent the original utterances and darker colors represent the synthesized utterances for the same speaker. Utterances for each speaker are synthesized from the source utterances of a different speaker.
+			We present TSNE plots of speaker embeddings of synthesized and ground-truth audio for both seen and unseen speakers. Speaker embeddings are obtained from <a href="https://catalog.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/speakerverification_speakernet">SpeakerNet speaker verification model</a>. The lighter colors represent the original utterances and darker colors represent the synthesized utterances for the same speaker. Utterances for each speaker are synthesized from the source utterances of a different speaker.
 			<center>
 			<table>
 				<thead>
@@ -125,6 +125,27 @@
 			</center>
 			
 		</div>
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Expressive source utterances (Unseen speakers)</h3>
+			</center>
+			<p>We present audio examples where source utterances are from expressive/emotional speakers. We use the <a href="https://zenodo.org/record/5117102#.Y2RS6OzMKvg">ADEPT dataset</a> for these examples. The source utterances are from the expressive audio of the two speakers in the dataset. The neutral utterances are used for deriving the speaker embedding. Both the male and female speakers are not seen during training.</p>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th><b>ACE-VC (Adapt)</b></th>
+						<th><b>ACE-VC (Mimic)</b></th>
+					</tr>
+				</thead>
+				<tbody id = "emotional_speakers" >
+					
+				</tbody>
+			</table>
+		</div>
 
 	</div>
 </body>
@@ -140,7 +161,10 @@ function fill_audio_table(tbody_id, audio_columns, transcripts, audio_width){
 		var tr_string = "<tr>";
 		for(var cidx=0; cidx < audio_columns.length; cidx++){
 			if(cidx > 0){
-				var audio_url = base_url + audio_columns[cidx][ridx];
+				var audio_url = audio_columns[cidx][ridx];
+				if(!audio_url.startsWith("audio/") ){
+					audio_url = base_url + audio_columns[cidx][ridx];	
+				}
 				tr_string += '<td><audio class="class_audio" controls="" style="width:'+ audio_width +'px; text-align: center;"><source src="' + audio_url + '" type="audio/wav">Your browser does not support the audio tag</audio>';
 				if(cidx == 1){
 					tr_string += '<details><summary style="cursor: pointer; color: #76b900;">[Show transcript]</summary>' + transcripts[ridx] + '</details>'
@@ -208,42 +232,14 @@ var unseen_transcripts = [
 var source_utterances_unseen = [
 	"source_0.wav",
 	"source_2.wav",
-	// "source_1.wav",
-	// "source_6.wav",
 	"source_3.wav",
 	"source_0.wav",
-	
-	// "source_3.wav",
-	// "source_5.wav",
-	// "source_2.wav",
-
-	// "source_7.wav",
-	// "source_0.wav",
-	// "source_0.wav",
-	// "source_6.wav",
-	// "source_0.wav",
-
 ];
 var target_utterances_unseen = [
 	"targetspeaker_7_0.wav",
 	"targetspeaker_29_0.wav",
-	// 
-	// "targetspeaker_27_0.wav",
 	"targetspeaker_11_0.wav",
 	"targetspeaker_27_0.wav",
-	
-	// "targetspeaker_39_0.wav",
-	
-	// "targetspeaker_11_0.wav",
-	// "targetspeaker_27_0.wav",
-	// "targetspeaker_27_0.wav",
-
-	// "targetspeaker_12_0.wav",
-	// "targetspeaker_16_0.wav",
-	// "targetspeaker_6_0.wav",
-	// "targetspeaker_17_0.wav",
-	// "targetspeaker_25_0.wav",
-	
 ];
 
 var mimic_utterances_unseen = [
@@ -251,44 +247,13 @@ var mimic_utterances_unseen = [
 	"unseen_mimic_2_TO_29.wav",
 	"unseen_mimic_3_TO_11.wav",
 	"unseen_mimic_0_TO_27.wav",
-	
-	// "unseen_mimic_1_TO_27.wav",
-	// "unseen_mimic_6_TO_11.wav",
-	// "unseen_mimic_3_TO_39.wav",
-	
-	
-	// "unseen_mimic_5_TO_27.wav",
-	// "unseen_mimic_2_TO_27.wav",
-
-	// "unseen_mimic_7_TO_12.wav",
-	// "unseen_mimic_0_TO_16.wav",
-	// "unseen_mimic_0_TO_6.wav",
-	// "unseen_mimic_6_TO_17.wav",
-	// "unseen_mimic_0_TO_25.wav",
-	
-
 ]
 
 var adapt_utterances_unseen = [
-"unseen_pitchadapt_0_TO_7.wav", // m2f, great
-"unseen_pitchadapt_2_TO_29.wav", // f2f good
-"unseen_pitchadapt_3_TO_11.wav", // f2m great
-"unseen_pitchadapt_0_TO_27.wav", // m2m good.
-
-// "unseen_pitchadapt_1_TO_27.wav",
-// "unseen_pitchadapt_6_TO_11.wav",
-// "unseen_pitchadapt_3_TO_39.wav",
-
-// "unseen_pitchadapt_5_TO_27.wav",
-// "unseen_pitchadapt_2_TO_27.wav",
-
-// "unseen_pitchadapt_7_TO_12.wav",
-// "unseen_pitchadapt_0_TO_16.wav",
-// "unseen_pitchadapt_0_TO_6.wav",
-// "unseen_pitchadapt_6_TO_17.wav",
-// "unseen_pitchadapt_0_TO_25.wav",
-
-
+	"unseen_pitchadapt_0_TO_7.wav",
+	"unseen_pitchadapt_2_TO_29.wav",
+	"unseen_pitchadapt_3_TO_11.wav",
+	"unseen_pitchadapt_0_TO_27.wav",
 ]
 
 var unseen_columns = [
@@ -334,12 +299,10 @@ var target_utterances_seen = [
 
 
 var mimic_utterances_seen = [
-	
 	"seen_mimic_605_TO_802.wav",
 	"seen_mimic_281_TO_442.wav",
 	"seen_mimic_281_TO_324.wav",
 	"seen_mimic_576_TO_294.wav",
-	
 	"seen_mimic_302_TO_476.wav"
 ]
 
@@ -348,9 +311,7 @@ var adapt_utterances_seen = [
 	"seen_pitchadapt_281_TO_442.wav",
 	"seen_pitchadapt_281_TO_324.wav",
 	"seen_pitchadapt_576_TO_294.wav",
-	
 	"seen_pitchadapt_302_TO_476.wav"
-
 ]
 
 
@@ -358,8 +319,8 @@ var seen_columns = [
 	comparison_types_seen,
 	source_utterances_seen,
 	target_utterances_seen,
+	adapt_utterances_seen,
 	mimic_utterances_seen,
-	adapt_utterances_seen
 ]
 
 var comparison_types = [
@@ -433,6 +394,57 @@ var comparison_columns = [
 fill_audio_table("unseen_speakers", unseen_columns,unseen_transcripts, 250)
 fill_audio_table("seen_speakers", seen_columns, seen_transcripts, 250)
 fill_audio_table_comparison("comparison_table", comparison_columns, comparison_transcripts, 170)
+
+var transcripts_emotional = [
+	"The leaves are changing colors.",
+	"This report is due tomorrow.",
+	"She is being fired.",
+	"Look at that puppy",
+]
+
+var emptional_types = [
+	"Male to Female",
+	"Male to Female",
+	"Female to Male",
+	"Female to Male",
+]
+var source_emptional = [
+	'audio/fear_ad01_0000.wav',
+	'audio/anger_ad01_0002.wav',
+	'audio/anger_ad00_0000.wav',
+	'audio/anger_ad00_0003.wav'
+]
+
+var target_emotional = [
+	'audio/neutral_ad00_0002.wav',
+	'audio/neutral_ad00_0002.wav',
+	'audio/neutral_ad01_0004.wav',
+	'audio/neutral_ad01_0004.wav',
+]
+
+var adapt_emotional = [
+	'audio/src_ad01_0000_fear_trg_neutral_ad00_pitch_adapt.wav',
+	'audio/src_ad01_0002_anger_trg_neutral_ad00_pitch_adapt.wav',
+	'audio/src_ad00_0000_anger_trg_neutral_ad01_pitch_adapt.wav',
+	'audio/src_ad00_0003_anger_trg_neutral_ad01_pitch_adapt.wav'
+]
+
+var mimic_emptional = [
+	'audio/src_ad01_0000_fear_trg_neutral_ad00_mimic.wav',
+	'audio/src_ad01_0002_anger_trg_neutral_ad00_mimic.wav',
+	'audio/src_ad00_0000_anger_trg_neutral_ad01_mimic.wav',
+	'audio/src_ad00_0003_anger_trg_neutral_ad01_mimic.wav'
+]
+
+var emotional_columns = [
+	emptional_types,
+	source_emptional,
+	target_emotional,
+	adapt_emotional,
+	mimic_emptional
+]
+
+fill_audio_table("emotional_speakers", emotional_columns, transcripts_emotional, 250)
 
 </script>	
 
