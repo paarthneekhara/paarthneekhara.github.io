@@ -24,7 +24,7 @@
 		<center>
 		<h1>ACE-VC:  Adaptive and Controllable Voice Conversion using Explicitly Disentangled Self-supervised Speech Representations</h1>
 		<h4 style="text-align: center"><a href="https://shehzeen.github.io/">*Shehzeen Hussain<sup>1</sup></a>, <a href="https://paarthneekhara.github.io/">*Paarth Neekhara<sup>1</sup></a>, <a href="https://developer.nvidia.com/blog/author/jocelyn-huang/">Jocelyn Huang<sup>2</sup></a>, <a href="https://developer.nvidia.com/blog/author/jasoli/">Jason Li<sup>2</sup></a>,  <a href="https://developer.nvidia.com/blog/author/bginsburg/">Boris Ginsburg<sup>2</sup></a><br><i>* Equal Contribution</i><br><br><sup>1</sup>University of California San Diego<br><sup>2</sup>NVIDIA</h4>
-		<h4><a href="https://github.com/shehzeen/NeMo/tree/ssl_tts_postintern" target="_blank">[Code]</a></h4>
+		<h4><a href="https://github.com/shehzeen/NeMo/tree/ssl_tts_final" target="_blank">[Code]</a></h4>
         </center>
 		<div style="border: 1px solid black; margin-top: 20px; margin-bottom: 10px;"></div>
 		<p>We present audio examples for our paper ACE-VC. To perform zero-shot voice conversion, we use our synthesis model to combine the content embedding of any given source utterance with the speaker embedding of the target speaker, both of which are derived from our Speech Representation Extractor. ACE-VC can perform voice conversion in two modes:</p>
@@ -146,6 +146,57 @@
 				</tbody>
 			</table>
 		</div>
+
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Pace Control</h3>
+			</center>
+			<p>
+				ACE-VC synthesizer allows control over the pace/duration of the synthesized utterances by changing the target duration for each time-step. We can slow down or speed up the speaking rate and also do more fine-grained control. In the following table we present audio examples for speeding up and slowing down the synthesis utterance.
+			</p>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th>Same Pace</th>
+						<th>Fast Pace (1.5 X)</th>
+						<th>Slow Pace (0.7 X)</th>
+					</tr>
+				</thead>
+				<tbody id = "pace_control" >
+					
+				</tbody>
+			</table>
+		</div>
+
+		<div style="border-top: 1px solid grey;"></div>
+		<div class="row">
+			<center>
+			<h3>Pitch Control</h3>
+			</center>
+			<p>
+				ACE-VC synthesizer allows control over pitch contour (fundamental frequency) of the synthesized speech. We can perform fine-grained control over the modulation of the pitch contour or simply scale the pitch contour by a factor. In the below table we present audio examples obtained by scaling the reference pitch contour by a factor.
+			</p>
+			<table class="table" style="margin-top: 20px;">
+				<thead>
+					<tr>
+						<th>Conversion Type</th>
+						<th>Source Utterance</th>
+						<th>Target Speaker</th>
+						<th>Same Pitch (1X)</th>
+						<th>Higher Pitch (3X)</th>
+						<th>Lower Pitch (0.5X)</th>
+					</tr>
+				</thead>
+				<tbody id = "pitch_control" >
+					
+				</tbody>
+			</table>
+		</div>
+
 
 	</div>
 </body>
@@ -444,7 +495,108 @@ var emotional_columns = [
 	mimic_emptional
 ]
 
+
+
 fill_audio_table("emotional_speakers", emotional_columns, transcripts_emotional, 250)
+
+
+var control_types = [
+	"Male to Female",
+	"Female to Male",
+]
+
+var source_pace_control = [
+	'source_0.wav',
+	'source_3.wav',
+]
+
+var target_pace_control = [
+	"targetspeaker_7_0.wav",
+	"targetspeaker_11_0.wav"
+]
+
+var normal_pace_control = [
+	'audio/ControlExpFinal/0_to_7_normal.wav',
+	'audio/ControlExpFinal/3_to_11_normal.wav',
+]
+
+var fast_pace_control = [
+	'audio/ControlExpFinal/0_to_7_pace1.5.wav',
+	'audio/ControlExpFinal/3_to_11_pace1.5.wav',
+]
+
+var slow_pace_control = [
+	'audio/ControlExpFinal/0_to_7_pace0.7.wav',
+	'audio/ControlExpFinal/3_to_11_pace0.7.wav',
+]
+
+
+var pace_control_columns = [
+	control_types,
+	source_pace_control,
+	target_pace_control,
+	normal_pace_control,
+	fast_pace_control,
+	slow_pace_control,
+]
+
+var transcripts_pace_control = [
+	"Going back to camp I procured a light, and after hooping and hallowing for a long time, I heard another groan. This time much louder than before.",
+	"Various dishes are frequently ornamented and garnished with its graceful leaves and these are sometimes boiled in soups. Although it is more usually confined to English cookery...",
+]
+
+fill_audio_table("pace_control", pace_control_columns, transcripts_pace_control, 200)
+
+
+var pitch_control_types = [
+	"Female to Male",
+	"Male to Female",
+]
+
+var source_pitch_control = [
+	'source_3.wav',
+	'source_0.wav',
+]
+
+var target_pitch_control = [
+	"targetspeaker_11_0.wav",
+	"targetspeaker_7_0.wav",
+]
+
+var normal_pitch_control = [
+	'audio/ControlExpFinal/3_to_11_normal.wav',
+	'audio/ControlExpFinal/0_to_7_normal.wav',
+]
+
+
+var high_pitch_control = [
+	'audio/ControlExpFinal/3_to_11_pitch3.0.wav',
+	'audio/ControlExpFinal/0_to_7_pitch3.0.wav',
+	
+]
+
+var low_pitch_control = [
+	'audio/ControlExpFinal/3_to_11_pitch0.5.wav',
+	'audio/ControlExpFinal/0_to_7_pitch0.5.wav',
+]
+
+var pitch_control_columns = [
+	pitch_control_types,
+	source_pitch_control,
+	target_pitch_control,
+	normal_pitch_control,
+	high_pitch_control,
+	low_pitch_control,
+]
+
+var transcripts_pace_control = [
+	"Various dishes are frequently ornamented and garnished with its graceful leaves and these are sometimes boiled in soups. Although it is more usually confined to English cookery...",
+	"Going back to camp I procured a light, and after hooping and hallowing for a long time, I heard another groan. This time much louder than before.",
+	
+]
+
+fill_audio_table("pitch_control", pitch_control_columns, transcripts_pace_control, 200)
+
 
 </script>	
 
