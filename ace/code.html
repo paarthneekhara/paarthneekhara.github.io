@@ -60,7 +60,7 @@
 		</div>
 	
 	<p>
-	The SRE is trained in a multi-task manner for speaker verification and text recognition. We require two sets of manifest files for the two tasks. 
+	The above script loads a pretrained Conformer-SSL model and then finetunes the SRE in a multi-task manner for speaker verification and text recognition. We require two sets of manifest files for the two tasks. 
 	<br>
 	
 	For reproducing the results in the paper, train the Speaker Verification head on the VoxCeleb2 dataset (~6000 speakers. The speaker numbers in the manifest files should be from 0 to 5993 for the speaker verification manifests. Text field can be set as "dummy" since text is ignored for training the speaker verification head. Entries in the PATH_TO_SV_TRAIN.json and PATH_TO_SV_VAL.json should look like:
@@ -144,7 +144,7 @@
 	<h2>Step 4: Voice Conversion Inference</h2>
 
 	<p>
-		To voice convert a single file.
+		To voice convert a single file:
 	</p>
 	<div class="code">
 		<code>
