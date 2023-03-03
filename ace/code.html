@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>ACE-VC Code Documentation</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style type="text/css">
+		body {
+		    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		    font-weight:300;
+		    font-size:15px;
+		    margin-left: auto;
+		    margin-right: auto;
+		    width: 80%;
+		}
+		.code {
+			background-color: #f5f5f5;	
+			padding: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>ACE-VC Training and Inference Instructions</h1>
+	<h4><a href="https://arxiv.org/abs/2302.08137" target="_blank">[Paper]</a> <a href="https://paarthneekhara.github.io/ace/" target="_blank">[Project Page]</a></h4>
+	<hr>
+	<h2>Setup</h2>
+
+	<p>
+	The ACE-VC code is now available in the main <a href="https://github.com/NVIDIA/NeMo">NeMo repository</a>. To get started, clone the repository and <a href="https://github.com/NVIDIA/NeMo/#from-source">install NeMo from source</a>.
+	</p>
+
+	<hr>
+
+	<h2>Step 1: Train the Speech Representation Extractor (SRE)</h2>
+	<p>
+		To train the SRE model, use the <a href="https://github.com/NVIDIA/NeMo/blob/main/examples/tts/ssl_tts.py">examples/tts/ssl_tts.py</a> script as follows: 
+	</p>
+		
+		<div class="code">
+			<code>
+				python examples/tts/ssl_tts.py \<br>
+				model.train_ds.manifest_speaker_verification_fp=PATH_TO_SV_TRAIN.json \<br>
+				model.train_ds.manifest_content_fp=PATH_TO_LIBRI_TTS_TRAIN.json \<br>
+				model.train_ds.sup_data_path=PATH_TO_STORE_TRAIN_SUPDATA \<br>
+				model.validation_ds.manifest_speaker_verification_fp=PATH_TO_SV_VAL.json \ <br>
+				model.validation_ds.manifest_content_fp=PATH_TO_LIBRI_TTS_VAL.json \ <br>
+				model.validation_ds.sup_data_path=PATH_TO_STORE_VAL_SUPDATA \<br>
+				exp_manager.exp_dir=PATH_TO_EXPERIMENT_DIR \<br>
+				exp_manager.name=EXP_NAME \<br>
+				model.train_ds.batch_size_content=16 \<br>
+				model.train_ds.batch_size_sv=64 \<br>
+				model.train_ds.num_workers_sv=12 \<br>
+				model.train_ds.num_workers_content=12 \<br>
+				model.validation_ds.batch_size_content=16 \<br>
+				model.validation_ds.batch_size_sv=64 \<br>
+				trainer.devices=-1 \ # number of GPUs, -1 would use all available GPUs <br>
+			</code>
+		</div>
+	
+	<p>
+	The SRE is trained in a multi-task manner for speaker verification and text recognition. We require two sets of manifest files for the two tasks. 
+	<br>
+	
+	For reproducing the results in the paper, train the Speaker Verification head on the VoxCeleb2 dataset (~6000 speakers. The speaker numbers in the manifest files should be from 0 to 5993 for the speaker verification manifests. Text field can be set as "dummy" since text is ignored for training the speaker verification head. Entries in the PATH_TO_SV_TRAIN.json and PATH_TO_SV_VAL.json should look like:
+	</p>
+	
+	<div class="code">
+		<code>
+			{"audio_filepath": "VoxCelebData/dev/aac/id02311/9I73r0AF300/00097.wav", "offset": 0, "duration": 6.08, "speaker": 5, "text": "dummy"} <br>
+			{"audio_filepath": "VoxCelebData/dev/aac/id07352/uUO_-H6_nNc/00217.wav", "offset": 0, "duration": 8.40, "speaker": 13, "text": "dummy"} <br>
+			{"audio_filepath": "VoxCelebData/dev/aac/id06771/mk-jzpaOQqo/00356.wav", "offset": 0, "duration": 9.47, "speaker": 3, "text": "dummy"} <br>
+			...
+		</code>
+	</div>
+
+	
+	<p>
+	
+	The content head is trained on the Libri-360-Clean dataset. Entries in the PATH_TO_LIBRI_TTS_TRAIN.json and PATH_TO_LIBRI_TTS_VAL.json should look like:
+	</p>
+	
+	<div class="code">
+		<code>
+			{"audio_filepath": "LibriTTS/train-clean-360/2204/131732/2204_131732_000007_000003.wav", "text": "When I came into the box, the orchestra played the 'Star Spangled Banner,' and all the people in the house arose; whereupon I was very much embarrassed.", "speaker_id": "2204", "duration": 7.82, "speaker": 177}<br>
+			{"audio_filepath": "LibriTTS/train-clean-360/6258/49755/6258_49755_000029_000011.wav", "text": "He rode to Southampton, that he might find a ship equipped for sea, and so came to Barfleur.", "speaker_id": "6258", "duration": 5.36, "speaker": 591}<br>
+			{"audio_filepath": "LibriTTS/train-clean-360/6458/61323/6458_61323_000080_000000.wav", "text": "Give me a draught from thy palms, O Finn, Son of my king for my succour, For my life and my dwelling.", "speaker_id": "6458", "duration": 6.12, "speaker": 616}<br>
+			...
+		</code>
+	</div>
+	
+	We use around 500 files each in the validation sets for the speaker verification and content heads. We train the Conformer SRE model for 37 epochs.
+	<p>
+	
+	</p>
+	<hr>
+
+	<h2>Step 2: Generating Supplementary data/Embeddings for training the synthesizer</h2>
+
+	<p>
+	Generate supplementary data for training the synthesizer as follows:
+	</p>
+	<div class="code">
+		<code>
+			python scripts/ssl_tts/make_supdata.py \ <br>
+			--ssl_model_ckpt_path PATH_TO_TRAINED_SRE_CKPT_FROM_STEP1.ckpt \ <br>
+			--manifest_paths "PATH_TO_LIBRI_TTS_TRAIN.json,PATH_TO_LIBRI_TTS_VAL.json" \ <br>
+			--sup_data_dir PATH_TO_DIR_TO_SAVE_THE_EMBEDDINGS \ <br>
+			--use_unique_tokens 1 \ # To allow duration control <br>
+		</code>
+	</div>
+	<p>
+	The above script, first extracts the content and speaker embeddings and saves them in PATH_TO_DIR_TO_SAVE_THE_EMBEDDINGS. Next, it extracts pitch contours using multi-procesing. The PATH_TO_LIBRI_TTS_TRAIN.json and PATH_TO_LIBRI_TTS_VAL.json should have the same format as given in Step 1. 
+	</p>
+	<hr>
+	<h2>Step 3: Train the FastPitch SSL synthesizer</h2>
+	<p>
+	The next step is to train the FastPitch SSL synthesizer that can convert the SSL representations into mel-spectrograms. Train the FastPitch SSL model using <a href="https://github.com/NVIDIA/NeMo/blob/main/examples/tts/fastpitch_ssl.py">examples/tts/fastpitch_ssl.py</a> script as follows: 
+	</p>
+	<div class="code">
+		<code>
+			python examples/tts/fastpitch_ssl.py \ <br>
+			pitch_mean=212.35 \ <br>
+			pitch_std=38.75 \ <br>
+			train_dataset=PATH_TO_TRAIN_MANIFEST.json \ <br>
+			validation_datasets=PATH_TO_VAL_MANIFEST.json \ <br>
+			hifi_ckpt_path=PATH_TO_TRAINED_HIFIGAN_VOCODER.ckpt \ <br>
+			model.train_ds.dataloader_params.batch_size=32 \ <br>
+			model.validation_ds.dataloader_params.batch_size=32 \ <br>
+			exp_manager.exp_dir=PATH_TO_EXPDIR \ <br>
+			exp_manager.name=EXP_NAME \ <br>
+			sup_data_dir=PATH_TO_DIR_TO_SAVE_THE_EMBEDDINGS \ # From Step 2<br> 
+			trainer.devices=-1 \ # number of GPUs, -1 would use all available GPUs <br>
+
+		</code>
+	</div>
+	<p>
+	The above script requires a HiFiGAN checkpoint trained on LibriTTS data to listen to the generated audio during training. The HiFiGAN model can be trained using the default arguments with the <a href="https://github.com/NVIDIA/NeMo/blob/main/examples/tts/hifigan.py">examples/tts/hifigan.py</a> script on LibrTTS data. We trained HiFiGAN for around 330 epochs on LibriTTS-360 for the experiments in our paper. We train the FastPitch synthesizer model for 604 epochs.
+	</p>
+	<br>
+	<hr>
+
+	<h2>Step 4: Voice Conversion Inference</h2>
+
+	<p>
+		To voice convert a single file.
+	</p>
+	<div class="code">
+		<code>
+			python scripts/ssl_tts/ssl_tts_vc.py \ <br>
+			--fastpitch_ckpt_path PATH_TO_TRAINED_CKPT_FROM_STEP3.ckpt <br>
+			--ssl_model_ckpt_path PATH_TO_TRAINED_CKPT_FROM_STEP1.ckpt \ <br>
+			--hifi_ckpt_path PATH_TO_TRAINED_HIFIGAN_CKPT.ckpt \ <br>
+			--source_audio_path PATH_TO_SOURCE_CONTENT_AUDIO.wav \ <br>
+			--target_audio_path PATH_TO_TARGET_SPEAKER_AUDIO.wav \ <br>
+			--out_path PATH_FOR_CONVERTED_AUDIO.wav \ <br>
+			--compute_pitch 1 \ # To allow the module compute the pitch <br>
+			--compute_duration 0 \ # Set as 0 to have same duration as original, 1 to adapt <br>
+			--use_unique_tokens 0; \# Set 0 if compute_duration is 0, 1 otherwise <br>
+		</code>
+	</div>
+
+	<p>
+		To voice convert a number of pairs you can prepare a pairs.txt file as follows:
+	</p>
+		<div class="code">
+			<code>
+			/data/source1.wav;/data/target1_example1.wav,/data/target1_example2.wav;/data/output1.wav <br>
+			/data/source2.wav;/data/target2_example1.wav,/data/target2_example2.wav;/data/output2.wav <br>
+			... <br>
+			</code>
+		</div>
+	<p>And then run the script as follows:</p>
+	<div class="code">
+		<code>
+			python scripts/ssl_tts/ssl_tts_vc.py \ <br>
+			--fastpitch_ckpt_path PATH_TO_TRAINED_CKPT_FROM_STEP3.ckpt <br>
+			--ssl_model_ckpt_path PATH_TO_TRAINED_CKPT_FROM_STEP1.ckpt \ <br>
+			--hifi_ckpt_path PATH_TO_TRAINED_HIFIGAN_CKPT.ckpt \ <br>
+			--source_target_out_pairs pairs.txt \
+			--compute_pitch 1 \ # To allow the module compute the pitch <br>
+			--compute_duration 0 \ # Set as 0 to have same duration as original, 1 to adapt <br>
+			--use_unique_tokens 0; \# Set 0 if compute_duration is 0, 1 otherwise <br>
+		</code>
+	</div>
+	<br>
+	<br>
+
+</body>
