@@ -2,7 +2,7 @@
  //webkitURL is deprecated but nevertheless
 URL = window.URL || window.webkitURL;
 
-var api_address = "http://138.68.131.51:5000";
+var api_address = "https://b04a-138-68-131-51.ngrok.io";
 var session_key = "test_session";
 var _testing = false;
 
