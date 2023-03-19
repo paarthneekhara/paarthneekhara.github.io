@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Textless VC- Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	
+
+	<style type="text/css">
+		.appborder {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+	<h1>Textless VC Demo</h1>
+	</center>
+
+
+	<div style="border: 1px solid black; margin-top: 10px; margin-bottom: 10px;"></div>
+	
+
+	<div id="whole_container">
+		<p style="font-size: 15px;">
+		Please record audio for the following texts by pressing the <b>Record</b> and <b>Stop</b> buttons. Try to be as accurate as possible while reading the texts and avoid silences in the beginning and at the end of a recording. You may re-record a particular text any number of times. When you are done with recording all the texts, press the upload button. After the upload is complete, you will be able to hear the results of zeroshot voice cloning and model adaptation will start in the background. 
+		<br>
+		<br>
+		</p>
+		<table class="table" style="width: 600px;">
+			<thead>
+				<tr>
+					<th style="width: 20px;">Input Type</th>
+					<th class='recordingControls' style="width: 20px;">Record</th>
+					<th class='recordingControls' style="width: 20px;">Stop</th>
+					<th class='recordingControls' >Recorded Audio</th>
+					<th class='sourceSelectControl' style="display:None; ">Select Source Audio</th>
+					<th class='sourceSelectControl' style="display:None; ">Selected Source Audio</th>
+					<th style="width: 100px;">Target Speaker</th>
+					<th style='display:None' class="targetCustomAudio" >Target Speaker Audio</th>
+					<th style='display:None' class="targetCustomAudio" >Selected Target Audio</th>
+					<th style="width: 500px;">Converted Audio</th>
+				</tr>
+			</thead>
+			<tbody id = "user_recordings" >
+				
+			</tbody>
+		</table>
+
+		<div>
+			<select id="encodingTypeSelect" style="display: none;">
+			  <option value="wav">Waveform Audio (.wav)</option>
+			  <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
+			  <option value="ogg">Ogg Vorbis (.ogg)</option>
+			</select>
+		</div>
+
+
+		<button id="uploadButton" class="col-md-3">Convert Voice</button>
+
+		
+		<div style="display: none;">
+			<div id="formats"></div>
+			<pre>Log</pre>
+			<pre id="log"></pre>
+
+			<pre>Recordings</pre>
+			<ol id="recordingsList"></ol>
+		</div>
+		
+		
+	</div>
+	
+	<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+	
+	<script src="js/WebAudioRecorder.min.js"></script>
+	<script src="js/app.js"></script>
+
+
+
+
+</body>
+
+</html>
