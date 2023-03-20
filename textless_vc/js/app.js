@@ -50,17 +50,17 @@ var total_examples = 1;
 var all_blobs = [];
 
 var target_speakers = [
-    {'obama': 'Obama'},
-    {'modi' : 'Modi'},
-    {'ravish' : 'Ravish'},
-    {'priyanka' : 'Priyanka'},
-    {'lex' : 'Lex'},
+    {'modi' : 'Narendra Modi'},
+    {'obama': 'Barack Obama'},
+    {'ravish' : 'Ravish Kumar'},
+    {'priyanka' : 'Priyanka Chopra'},
+    {'lex' : 'Lex Fridman'},
     {'oprah': 'Oprah'},
-    {'emma': 'Emma'},
-    {'miley' : 'Miley'},
-    {'aubrey' : 'Aubrey'},
-    {'sundar' : 'Sundar'},
-    {'ahmadCorrect' : 'Ahmad (Correct)'},
+    {'emma': 'Emma Watson'},
+    {'miley' : 'Miley Cyrus'},
+    {'aubrey' : 'Aubrey Plaza'},
+    {'sundar' : 'Sundar Pichai'},
+    // {'ahmadCorrect' : 'Ahmad (Correct)'},
     {'custom': 'Custom (Select Audio File)'},
 ]
 
