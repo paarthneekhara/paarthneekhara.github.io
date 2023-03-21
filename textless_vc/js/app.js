@@ -284,7 +284,7 @@ function upload(){
                 response_data = JSON.parse(e.target.responseText);
                 results = response_data["results"];
                 for(var rn = 0; rn < total_examples; rn++){
-                    audio_html = '<audio style="width:250px;" controls src="data:audio/ogg;base64,' + results[rn]['audio_converted'] + '"></audio>'
+                    audio_html = '<audio style="width:250px;" controls src="data:audio/wav;base64,' + results[rn]['audio_converted'] + '"></audio>'
                     $("#convertedAudioTd_" + rn).html(audio_html);
                 }
             }
