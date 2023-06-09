@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<title>Singing VC Demo</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+	
+
+	<style type="text/css">
+		.appborder {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+
+	<center>
+	<h1>Singing VC Demo</h1>
+	</center>
+
+
+	<div style="border: 1px solid black; margin-top: 10px; margin-bottom: 10px;"></div>
+	
+
+	<div id="whole_container">
+		<p style="font-size: 15px;">
+		Please record the audio utterance that you want to voice-convert by pressing the <b>Record</b> and <b>Stop</b> buttons. Avoid silences in the beginning and at the end of a recording. You may re-record any number of times if you are not satisfied with your recording. You may also change the input type to select a source ".wav" file instead of recording. Next, select the target speaker for voice conversion or provide a custom reference audio for the target speaker. Once you are done setting the inputs, press the convert voice button to listen to the voice converted audio.
+		<br>
+		<br>
+		</p>
+		<center>
+		<table class="table" style="width: 600px;">
+			<thead>
+				<tr>
+					<th >Input Type</th>
+					<th class='recordingControls' >Record</th>
+					<th class='recordingControls' >Stop</th>
+					<th class='recordingControls' style="white-space: nowrap;">Recorded Audio</th>
+					<th class='sourceSelectControl' style="display:None; ">Select Source Audio</th>
+					<th class='sourceSelectControl' style="display:None; ">Selected Source Audio</th>
+					<th >Target Speaker</th>
+					<th >Conversion Type</th>
+					<th style='display:None' class="targetCustomAudio" >Target Speaker Audio</th>
+					<th style='display:None' class="targetCustomAudio" >Selected Target Audio</th>
+					<th > </th>
+				</tr>
+			</thead>
+			<tbody id = "user_recordings" >
+				
+			</tbody>
+		</table>
+		</center>
+
+		<div>
+			<select id="encodingTypeSelect" style="display: none;">
+			  <option value="wav">Waveform Audio (.wav)</option>
+			  <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
+			  <option value="ogg">Ogg Vorbis (.ogg)</option>
+			</select>
+		</div>
+
+		<div class="row">
+			
+		</div>
+
+		
+		<div style="display: none;">
+			<div id="formats"></div>
+			<pre>Log</pre>
+			<pre id="log"></pre>
+
+			<pre>Recordings</pre>
+			<ol id="recordingsList"></ol>
+		</div>
+		<hr>
+		<div class="row">
+			<center>
+				<div id="audioContainer" class"row"></div>
+				<div id="videoContainer" class="row" style="padding-top: 20px"></div>
+			</center>
+		</div>
+		
+	</div>
+	
+	<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+	
+	<script src="js/WebAudioRecorder.min.js"></script>
+	<script src="js/app.js?v=1"></script>
+
+
+
+
+</body>
+
+</html>
