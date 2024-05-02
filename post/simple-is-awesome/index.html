@@ -1,7 +1,325 @@
-<!doctype html><html lang=en-us><head><meta http-equiv=content-type content="text/html" charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>The Important Things In Life Are Often Simple &middot; Paarth Neekhara</title><meta name=author content="Paarth Neekhara"><meta name=generator content="Hugo 0.59.1"><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1,user-scalable=no"><link rel="shortcut icon" href=/img/favicon.ico><link rel=stylesheet href=/css/screen.css><link rel=stylesheet href=/css/github.css><style type=text/css>a,a:visited{color:#185e8d}.pagination a{color:#144465}.gist .gist-file .gist-meta a:visited{color:#144465!important}a:focus,a:hover{color:#185e8d}h1.post-title a:focus,h1.post-title a:hover,h1.blog-title a:focus,h1.blog-title a:hover{color:#144465}.older-posts:hover,.newer-posts:hover{color:#144465}</style><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-80979213-1','auto');ga('send','pageview');</script></head><body class=home-template><header id=site-head><h1 class=blog-title style=text-align:center><a href=/>Paarth Neekhara</a></h1></header><nav class=menu role=nav><ul><li class="nav nav-current"><a href=/#publications>Publications</a></li><li class="nav nav-current"><a href=/resume.pdf>Academic CV</a></li><li class="nav nav-current"><a href=https://github.com/paarthneekhara>GitHub</a></li><li class="nav nav-current"><a href="https://scholar.google.com/citations?user=lbls-cUAAAAJ&amp;hl=en">Google Scholar</a></li><li class="nav nav-current"><a href=https://500px.com/paarthneekhara>Photography</a></li><li class="nav nav-current"><a href=https://www.strava.com/athletes/13254146>Strava</a></li><li class="nav nav-current"><a href=https://twitter.com/n_paarth>Twitter</a></li></ul></nav><main class=content role=main><article class=post><header><h1 class=post-title>The Important Things In Life Are Often Simple</h1><div class=post-meta><time datetime="26 August 2016">26 August 2016</time></div></header><section class=post-content><p>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!</p><h2 id=language>Language</h2><p>There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language. It is purely by experience and observation that the child learns the patterns in the word sequences. This way of learning becomes more exciting when we realize how well it generalizes across all languages.</p><p><strong>There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak</strong>. An RNN processes and learns from sequential information. Consider the problem of machine translation.</p><p><img class=post_image src=/blogs/rnn.png style=height:300px><div style=font-size:12px>Image Source: <a href=http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf>http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf</a></div></p><p>The dataset contains pairs of sentences in two languages (eg. German and English). An RNN processes the input sentence sequentially (word by word or character by character) and uses the processed information with the current word to obtain a new state. The first stage of the translation can be understood as encoding the meaning of the input sentence into a vector of numbers, popularly called a thought vector or sentence embedding. The next stage of the translation involves generating the embedded sentence in the target language, which is again done through an RNN. This simple architecture is surprisingly effective and given enough data, it can easily outperform a rule based machine translator. <strong>Without modifying anything in the above architecture, the RNN can be used for translating any pair of languages given the appropriate data set.</strong></p><blockquote><p>There are strong reasons to believe our mind interprets and generates sentences in a very similar way. <strong>The training corpus for our mind is linked across many domains. We can translate text to text (one language to another), image to text (describing an image) or even text to image (picturing a scene while reading).</strong> The cool thing is, we can simulate most of these translations on a machine as well.</p></blockquote><h2 id=vision>Vision</h2><p>Before connecting the dots between images and text, we need to encode the images in a way a unified network can work on image and text encodings. This involves capturing the image features in the form of a vector that has information about the image. Convolutional Neural Networks have produced unprecedented results in this area. I&rsquo;ll not dig deep into them, but the idea essentially is to train filters on images that produce features, which are relevant to understanding its content. A CNN can work directly on top of scaled pixel values without any further preprocessing on the image. ( I am pointing this out to reiterate its simplicity).</p><p><img class=post_image src=/blogs/conv.png style=height:300px><div style=font-size:12px>Image Source: <a href=http://www.mdpi.com/2072-4292/7/11/14680/htm>http://www.mdpi.com/2072-4292/7/11/14680/htm</a></div></p><blockquote><p>It is interesting to observe that a CNN trained for one task can be used for generating image feature vector for another. The reason is that the features of image extracted by a CNN are very generic (like edges, blobs etc) . This holds true for RNNs as well. Both CNN and RNN can be used as feature encoders for images and text respectively.</p></blockquote><h2 id=linking-it-together>Linking It Together</h2><p>The fact we are able to encode the content of both text and image in numbers allows us to link the two. We can now train our models on data linked across multiple domains - language and vision. I will elaborate on two such interesting problems - <strong>Visual Question Answering</strong> and <strong>Image Synthesis From Text</strong>.</p><h4 id=visual-question-answering-http-www-visualqa-org>Visual Question Answering (<a href=http://www.visualqa.org/>http://www.visualqa.org/</a>)</h4><table><tr><td><img class=post_image src=/blogs/vqaeg.png style=height:200px></td><td><img class=post_image src=/blogs/vqaarch.jpeg style=height:300px></td></tr><tr><td>Example of Visual Question Answering</td><td><center>VQA model architecture from <a href=http://arxiv.org/abs/1505.02074>http://arxiv.org/abs/1505.02074</a></center></td></tr></table><p>The problem definition of VQA is: given an image and a question predict an answer. The training data schema is the triplet (image, question, answer). The model architecture for this problem is shown above.</p><ol><li>The image is embedded using a pre-trained CNN and the 4096 dimensional image embedding vector is reduced to 512 dimensional vector (same as that of word embeddings) using a fully connected layer.</li><li>A random word embedding (512 dimensional vector) is initialized for each word in the question vocabulary. These will be trained along with the entire model.</li><li>The word and the image embedding are passed through an RNN (LSTM), with image appending as the last (or the first, as suggested in the paper) word for the LSTM.</li><li>The last hidden state of the RNN is mapped to a 1000 dimensional vector(representing 1000 answers) using a fully connected layer.</li></ol><p>Notice that <strong>this is one of the most intuitive way to connect the image and text embeddings</strong>. You can experiment with your own architectures and most of them work reasonably well. The idea is to relate the answer to text and image features, captured through RNN and CNN respectively.</p><p>Refer to the <a href=https://github.com/abhshkdz/neural-vqa>awesome torch implementation of VQA</a> for the code. I implemented this architecture in tensorflow and it is hypnotizing to see the model training! Refer to <a href=https://github.com/paarthneekhara/neural-vqa-tensorflow>github.com/paarthneekhara/neural-vqa-tensorflow</a> for the code in tensorflow and sample predictions. You can play with the pre-trained model.</p><h4 id=image-synthesis-from-text>Image Synthesis From Text</h4><p>We can picture a novel while reading it because our mind understands the correspondence between text and images. The way this is simulated on a machine, is by conditioning a generative model with the text features.</p><p>A <strong>Generative Adversarial Network</strong> is trained for generating images from random noise. An <a href=https://openai.com/blog/generative-models/>excellent blog/tutorial</a>
-for understanding how they work is published by Open AI. A generative network generates an image and a discriminative network judges whether an image is a generated image or a real image. A discriminative network is trained for judging real and generated images, while the generative network is trained for fooling the discriminator by producing images that are deceivingly real.</p><p>I cannot convincingly relate this image generation with the human mind, but this concept is super interesting and effective!
-To link the generated images with text, a <strong>conditional generative adversarial model</strong> is used. <a href=https://arxiv.org/abs/1605.05396>Generative Adversarial Text to Image Synthesis</a> - This paper implements one such conditional adversarial model.</p><p><img class=post_image src=/blogs/genmodel.jpeg style=height:200px><div style=font-size:12px>Image Source: <a href=https://arxiv.org/abs/1605.05396>https://arxiv.org/abs/1605.05396</a></div></p><p>I implemented the GAN-CLS algorithm in the above paper using <a href=https://github.com/ryankiros/skip-thoughts>skip-thought-vectors</a> for embedding the captions. Some of the sample predictions are:</p><table><thead><tr><th>Caption</th><th align=right>Generated Images</th></tr></thead><tbody><tr><td>the flower shown has yellow anther red pistil and bright red petals</td><td align=right><img src=http://i.imgur.com/SknZ3Sg.jpg alt></td></tr><tr><td>this flower has petals that are yellow, white and purple and has dark lines</td><td align=right><img src=http://i.imgur.com/8zsv9Nc.jpg alt></td></tr><tr><td>the petals on this flower are white with a yellow center</td><td align=right><img src=http://i.imgur.com/vvzv1cE.jpg alt></td></tr><tr><td>this flower has a lot of small round pink petals.</td><td align=right><img src=http://i.imgur.com/w0zK1DC.jpg alt></td></tr><tr><td>this flower is orange in color, and has petals that are ruffled and rounded.</td><td align=right><img src=http://i.imgur.com/VfBbRP1.jpg alt></td></tr><tr><td>the flower has yellow petals and the center of it is brown</td><td align=right><img src=http://i.imgur.com/IAuOGZY.jpg alt></td></tr></tbody></table><p>Refer to <a href=https://github.com/paarthneekhara/text-to-image>github.com/paarthneekhara/text-to-image</a> for the code and a pre-trained model.</p><h2 id=it-did-not-seem-all-that-simple>It did not seem all that simple :/</h2><p><a href=http://cs231n.github.io/>cs231n.github.io</a> and the lectures &lt;3 . That&rsquo;s all you need :D .</p></section><section class=post-tags style=padding-bottom:60px><div class="post-meta tags"><i class="fa fa-fw fa-tag"></i></div></section><div id=disqus_thread></div><script type=application/javascript>var disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return;}
-var d=document,s=d.createElement('script');s.async=true;s.src='//'+"paarthneekhara"+'.disqus.com/embed.js';s.setAttribute('data-timestamp',+new Date());(d.head||d.body).appendChild(s);})();</script><noscript>Please enable JavaScript to view the <a href=https://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript><a href=https://disqus.com class=dsq-brlink>comments powered by <span class=logo-disqus>Disqus</span></a><section class=share><p class=backtotop><a data-scroll href=#site-head><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class=backtotoptext href=#site-head>Back to top</a></p><p class="info prompt">Share</p><a href="http://twitter.com/share?text=The%20Important%20Things%20In%20Life%20Are%20Often%20Simple&url=%2fpost%2fsimple-is-awesome%2f" title="Share on Twitter" onclick="window.open(this.href,'twitter-share','width=550,height=235');return false;"><i class="fa fa-2x fa-fw fa-twitter-square"></i><span class=hidden>Twitter</span></a>
-<a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fsimple-is-awesome%2f" title="Share on Facebook" onclick="window.open(this.href,'facebook-share','width=580,height=296');return false;"><i class="fa fa-2x fa-fw fa-facebook-square" style=margin-left:-8px></i><span class=hidden>Facebook</span></a>
-<a href="https://plus.google.com/share?url=%2fpost%2fsimple-is-awesome%2f" title="Share on Google+" onclick="window.open(this.href,'google-plus-share','width=490,height=530');return false;"><i class="fa fa-2x fa-fw fa-google-plus-square" style=margin-left:-8px></i><span class=hidden>Google+</span></a></section><footer class=post-footer><section class=author><div class=authorimage style=background:url(/img/avatar.jpg)></div><h4>Paarth Neekhara</h4><p class=bio></p><p class=meta></p></section></footer></article></main><footer class=site-footer><div class=inner><section class=footer-social><a href=//twitter.com/n_paarth target=_blank title=Twitter><i class="fa fa-2x fa-fw fa-twitter"></i><span class=hidden>Twitter</span></a>&nbsp;
-<a href=//github.com/paarthneekhara target=_blank title=GitHub><i class="fa fa-2x fa-fw fa-github"></i><span class=hidden>GitHub</span></a>&nbsp;</section></div></footer><script src=//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js></script><script src=/js/index.js></script><script src=/js/smooth-scroll.min.js></script><script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js></script><script>smoothScroll.init({speed:800,easing:'easeInOutCubic',updateURL:false,offset:125,});</script><script>hljs.initHighlightingOnLoad();</script></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>The Important Things In Life Are Often Simple &middot; Paarth Neekhara</title>
+    <meta name="author" content="Paarth Neekhara">
+    
+    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <!-- RSS autodiscovery -->
+    
+
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/screen.css">
+    <link rel="stylesheet" href="/css/github.css">
+    
+    
+
+    
+
+    <!-- Stylesheet for theme color -->
+    <style type="text/css">
+    a, a:visited {color: #185e8d;}
+    .pagination a {color: #144465;}
+    .gist .gist-file .gist-meta a:visited {color: #144465 !important;}
+    a:focus, a:hover {color: #185e8d;}
+    h1.post-title a:focus, h1.post-title a:hover, h1.blog-title a:focus, h1.blog-title a:hover {color: #144465;}
+    .older-posts:hover, .newer-posts:hover {color: #144465;}
+</style>
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-80979213-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>
+
+<body class="home-template">
+    <header id="site-head">
+	
+	<h1 class="blog-title" style="text-align: center;"><a href="/">Paarth Neekhara</a></h1>
+	
+	
+</header>
+    
+<nav class="menu" role="nav">
+    <ul>
+        
+        	<li class="nav nav-current"><a href="/#publications">Publications</a></li>
+      	
+        	<li class="nav nav-current"><a href="/resume.pdf">Academic CV</a></li>
+      	
+        	<li class="nav nav-current"><a href="https://github.com/paarthneekhara">GitHub</a></li>
+      	
+        	<li class="nav nav-current"><a href="https://scholar.google.com/citations?user=lbls-cUAAAAJ&amp;hl=en">Google Scholar</a></li>
+      	
+        	<li class="nav nav-current"><a href="https://500px.com/paarthneekhara">Photography</a></li>
+      	
+        	<li class="nav nav-current"><a href="https://www.strava.com/athletes/13254146">Strava</a></li>
+      	
+        	<li class="nav nav-current"><a href="https://twitter.com/n_paarth">Twitter</a></li>
+      	
+    </ul>
+</nav>
+
+    
+    <main class="content" role="main">
+    
+<article class="post">
+    <header>
+        <h1 class="post-title">The Important Things In Life Are Often Simple</h1>
+        <div class="post-meta">
+            <time datetime="26 August 2016">
+                26 August 2016
+            </time>
+        </div>
+    </header>
+
+    <section class="post-content">
+        
+
+<p>I remember these words from a lecture on Theory of Computation. The more you complicate a solution, the more specific it becomes to the problem being solved. The less you assume, the more you generalize. I&rsquo;ll keep this article specific to Machine Learning and how simple things can do wonders!</p>
+
+<h2 id="language">Language</h2>
+
+<p>There is something magical about how a little child learns a language. The child is not imparted any knowledge related to the semantics or the grammar of the language. It is purely by experience and observation that the child learns the patterns in the word sequences. This way of learning becomes more exciting when we realize how well it generalizes across all languages.</p>
+
+<p><strong>There is a strong correspondence between how a Recurrent Neural Network is trained and how a child learns to speak</strong>. An RNN processes and learns from sequential information. Consider the problem of machine translation.</p>
+
+<p><img class="post_image" src="/blogs/rnn.png" style = "height : 300px;">
+<div style = "font-size:12px">Image Source: <a href="http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf">http://cs224d.stanford.edu/lectures/CS224d-Lecture8.pdf</a>  </div></p>
+
+<p>The dataset contains pairs of sentences in two languages (eg. German and English). An RNN processes the input sentence sequentially (word by word or character by character) and uses the processed information with the current word to obtain a new state. The first stage of the translation can be understood as encoding the meaning of the input sentence into a vector of numbers, popularly called a thought vector or sentence embedding. The next stage of the translation involves generating the embedded sentence in the target language, which is again done through an RNN. This simple architecture is surprisingly effective and given enough data, it can easily outperform a rule based machine translator. <strong>Without modifying anything in the above architecture, the RNN can be used for translating any pair of languages given the appropriate data set.</strong></p>
+
+<blockquote>
+<p>There are strong reasons to believe our mind interprets and generates sentences in a very similar way. <strong>The training corpus for our mind is linked across many domains. We can translate text to text (one language to another), image to text (describing an image) or even text to image (picturing a scene while reading).</strong> The cool thing is, we can simulate most of these translations on a machine as well.</p>
+</blockquote>
+
+<h2 id="vision">Vision</h2>
+
+<p>Before connecting the dots between images and text, we need to encode the images in a way a unified network can work on image and text encodings. This involves capturing the image features in the form of a vector that has information about the image. Convolutional Neural Networks have produced unprecedented results in this area. I&rsquo;ll not dig deep into them, but the idea essentially is to train filters on images that produce features, which are relevant to understanding its content. A CNN can work directly on top of scaled pixel values without any further preprocessing on the image. ( I am pointing this out to reiterate its simplicity).</p>
+
+<p><img class="post_image" src="/blogs/conv.png" style = "height : 300px">
+<div style = "font-size:12px">Image Source: <a href="http://www.mdpi.com/2072-4292/7/11/14680/htm">http://www.mdpi.com/2072-4292/7/11/14680/htm</a>  </div></p>
+
+<blockquote>
+<p>It is interesting to observe that a CNN trained for one task can be used for generating image feature vector for another. The reason is that the features of image extracted by a CNN are very generic (like edges, blobs etc) . This holds true for RNNs as well. Both CNN and RNN can be used as feature encoders for images and text respectively.</p>
+</blockquote>
+
+<h2 id="linking-it-together">Linking It Together</h2>
+
+<p>The fact we are able to encode the content of both text and image in numbers allows us to link the two. We can now train our models on data linked across multiple domains - language and vision. I will elaborate on two such interesting problems - <strong>Visual Question Answering</strong> and <strong>Image Synthesis From Text</strong>.</p>
+
+<h4 id="visual-question-answering-http-www-visualqa-org">Visual Question Answering (<a href="http://www.visualqa.org/">http://www.visualqa.org/</a>)</h4>
+
+<table>
+    <tr>
+        <td>
+            <img class="post_image" src="/blogs/vqaeg.png" style = "height : 200px">
+        </td>
+        <td>
+            <img class="post_image" src="/blogs/vqaarch.jpeg" style = "height : 300px">
+        </td>
+    </tr>
+    <tr>
+        <td>Example of Visual Question Answering</td>
+        <td><center>VQA model architecture from <a href="http://arxiv.org/abs/1505.02074">http://arxiv.org/abs/1505.02074</a></center> </td>
+    </tr>
+</table>
+
+<p>The problem definition of VQA is: given an image and a question predict an answer. The training data schema is the triplet (image, question, answer). The model architecture for this problem is shown above.</p>
+
+<ol>
+<li>The image is embedded using a pre-trained CNN and the 4096 dimensional image embedding vector is reduced to 512 dimensional vector (same as that of word embeddings) using a fully connected layer.</li>
+<li>A random word embedding (512 dimensional vector) is initialized for each word in the question vocabulary. These will be trained along with the entire model.</li>
+<li>The word and the image embedding are passed through an RNN (LSTM), with image appending as the last (or the first, as suggested in the paper) word for the LSTM.</li>
+<li>The last hidden state of the RNN is mapped to a 1000 dimensional vector(representing 1000 answers) using a fully connected layer.</li>
+</ol>
+
+<p>Notice that <strong>this is one of the most intuitive way to connect the image and text embeddings</strong>. You can experiment with your own architectures and most of them work reasonably well. The idea is to relate the answer to text and image features, captured through RNN and CNN respectively.</p>
+
+<p>Refer to the <a href="https://github.com/abhshkdz/neural-vqa">awesome torch implementation of VQA</a> for the code. I implemented this architecture in tensorflow and it is hypnotizing to see the model training! Refer to <a href="https://github.com/paarthneekhara/neural-vqa-tensorflow">github.com/paarthneekhara/neural-vqa-tensorflow</a> for the code in tensorflow and sample predictions. You can play with the pre-trained model.</p>
+
+<h4 id="image-synthesis-from-text">Image Synthesis From Text</h4>
+
+<p>We can picture a novel while reading it because our mind understands the correspondence between text and images. The way this is simulated on a machine, is by conditioning a generative model with the text features.</p>
+
+<p>A <strong>Generative Adversarial Network</strong> is trained for generating images from random noise. An <a href="https://openai.com/blog/generative-models/">excellent blog/tutorial</a>
+for understanding how they work is published by Open AI. A generative network generates an image and a discriminative network judges whether an image is a generated image or a real image. A discriminative network is trained for judging real and generated images, while the generative network is trained for fooling the discriminator by producing images that are deceivingly real.</p>
+
+<p>I cannot convincingly relate this image generation with the human mind, but this concept is super interesting and effective!
+To link the generated images with text, a <strong>conditional generative adversarial model</strong> is used. <a href="https://arxiv.org/abs/1605.05396">Generative Adversarial Text to Image Synthesis</a> - This paper implements one such conditional adversarial model.</p>
+
+<p><img class="post_image" src="/blogs/genmodel.jpeg" style = "height : 200px">
+<div style = "font-size:12px">Image Source: <a href="https://arxiv.org/abs/1605.05396">https://arxiv.org/abs/1605.05396</a>  </div></p>
+
+<p>I implemented the GAN-CLS algorithm in the above paper using <a href="https://github.com/ryankiros/skip-thoughts">skip-thought-vectors</a> for embedding the captions. Some of the sample predictions are:</p>
+
+<table>
+<thead>
+<tr>
+<th>Caption</th>
+<th align="right">Generated Images</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>the flower shown has yellow anther red pistil and bright red petals</td>
+<td align="right"><img src="http://i.imgur.com/SknZ3Sg.jpg" alt="" /></td>
+</tr>
+
+<tr>
+<td>this flower has petals that are yellow, white and purple and has dark lines</td>
+<td align="right"><img src="http://i.imgur.com/8zsv9Nc.jpg" alt="" /></td>
+</tr>
+
+<tr>
+<td>the petals on this flower are white with a yellow center</td>
+<td align="right"><img src="http://i.imgur.com/vvzv1cE.jpg" alt="" /></td>
+</tr>
+
+<tr>
+<td>this flower has a lot of small round pink petals.</td>
+<td align="right"><img src="http://i.imgur.com/w0zK1DC.jpg" alt="" /></td>
+</tr>
+
+<tr>
+<td>this flower is orange in color, and has petals that are ruffled and rounded.</td>
+<td align="right"><img src="http://i.imgur.com/VfBbRP1.jpg" alt="" /></td>
+</tr>
+
+<tr>
+<td>the flower has yellow petals and the center of it is brown</td>
+<td align="right"><img src="http://i.imgur.com/IAuOGZY.jpg" alt="" /></td>
+</tr>
+</tbody>
+</table>
+
+<p>Refer to <a href="https://github.com/paarthneekhara/text-to-image">github.com/paarthneekhara/text-to-image</a> for the code and a pre-trained model.</p>
+
+<h2 id="it-did-not-seem-all-that-simple">It did not seem all that simple :/</h2>
+
+<p><a href="http://cs231n.github.io/">cs231n.github.io</a> and the lectures &lt;3 . That&rsquo;s all you need :D .</p>
+
+    </section>
+
+    
+    <section class="post-tags" style="padding-bottom:60px;">
+        <div class="post-meta tags">
+            <i class="fa fa-fw fa-tag"></i>
+            
+        </div>
+    </section>
+    
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "paarthneekhara" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    <section class="share">
+    <p class="backtotop"><a data-scroll href="#site-head"><i class="fa fa-lg fa-fw fa-angle-double-up"></i></a><a data-scroll class="backtotoptext" href="#site-head"> Back to top</a></p>
+    <p class="info prompt">Share</p>
+    <a href="http://twitter.com/share?text=The%20Important%20Things%20In%20Life%20Are%20Often%20Simple&url=%2fpost%2fsimple-is-awesome%2f" title="Share on Twitter"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <i class="fa fa-2x fa-fw fa-twitter-square"></i> <span class="hidden">Twitter</span>
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fsimple-is-awesome%2f" title="Share on Facebook"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <i class="fa fa-2x fa-fw fa-facebook-square" style="margin-left: -8px"></i> <span class="hidden">Facebook</span>
+    </a>
+    <a href="https://plus.google.com/share?url=%2fpost%2fsimple-is-awesome%2f" title="Share on Google+"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <i class="fa fa-2x fa-fw fa-google-plus-square" style="margin-left: -8px"></i> <span class="hidden">Google+</span>
+    </a>
+</section>
+
+    <footer class="post-footer">
+        <section class="author">
+    <div class="authorimage" style="background: url(/img/avatar.jpg)"></div>
+    <h4>Paarth Neekhara</h4>
+    <p class="bio"></p>
+    <p class="meta">
+      
+    </p>
+</section>
+    </footer>
+    
+</article>
+
+    </main>
+
+    <footer class="site-footer">
+	<div class="inner">
+		<section class="footer-social">
+      
+      <a href="//twitter.com/n_paarth" target="_blank" title="Twitter"><i class="fa fa-2x fa-fw fa-twitter"></i> <span class="hidden">Twitter</span></a>&nbsp;
+      
+      
+      
+      
+      
+      
+      <a href="//github.com/paarthneekhara" target="_blank" title="GitHub"><i class="fa fa-2x fa-fw fa-github"></i> <span class="hidden">GitHub</span></a>&nbsp;
+      
+      
+      
+      
+  </section>
+
+		
+	</div>
+</footer>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script src="/js/smooth-scroll.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+
+
+<script>
+    smoothScroll.init({
+        speed: 800,
+        easing: 'easeInOutCubic',
+        updateURL: false,
+        offset: 125,
+    });
+</script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+</body>
+</html>
