@@ -11,6 +11,7 @@ body {
   padding: 0;
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-tap-highlight-color: rgba(0,0,0,0); /* prevent grey link highlight in iOS */
+  color: #333;
 }
 body * {
   max-height: 1000000em;
